@@ -1,0 +1,212 @@
+/* section2.css */
+
+:root {
+  /* Цвет фона по скриншоту ~ rgb(57,66,47) */
+  --sec2-bg: #39412f;
+  --sec2-text: #f4efe6;
+  --sec2-muted: rgba(244, 239, 230, 0.88);
+  --sec2-max: 980px;
+
+  --sec2-serif: var(--base-serif);
+  --sec2-script: var(--base-script);
+
+  --paper: #efe9dd; /* рваная "бумага" */
+}
+
+.invite-date {
+  position: relative;
+  min-height: 100svh;
+  background: var(--sec2-bg);
+  color: var(--sec2-text);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(40px, 6vw, 72px) 16px;
+}
+
+.invite-date__inner {
+  width: 100%;
+  max-width: var(--sec2-max);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+/* Title */
+.invite-date__title {
+  margin: 0;
+  font-family: var(--sec2-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: clamp(36px, 5.6vw, 64px);
+  line-height: 0.95;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+}
+
+/* Script line */
+.invite-date__script {
+  margin: 0;
+  font-family: var(--sec2-script);
+  font-size: clamp(22px, 3.2vw, 34px);
+  color: var(--sec2-text);
+  opacity: 0.95;
+}
+
+/* Body text */
+.invite-date__text {
+  margin: 0;
+  max-width: 640px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(12px, 1.6vw, 14px);
+  line-height: 1.35;
+  color: var(--sec2-muted);
+}
+
+/* Big date */
+.invite-date__bigDate {
+  margin: 18px 0 8px;
+  font-family: var(--sec2-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: clamp(42px, 6.4vw, 78px);
+  line-height: 1;
+}
+
+/* Calendar */
+.invite-date__calendarWrap {
+  margin-top: 6px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.invite-date__month {
+  margin: 0;
+  font-family: var(--sec2-serif);
+  letter-spacing: 0.08em;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.calendar {
+  border-collapse: collapse;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 11px;
+  color: rgba(244, 239, 230, 0.75);
+}
+
+.calendar__head th {
+  font-weight: 500;
+  padding: 0 10px 6px;
+  letter-spacing: 0.06em;
+  color: rgba(244, 239, 230, 0.55);
+}
+
+.calendar__body td {
+  width: 26px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.calendar__body td.is-outside {
+  opacity: 0.22;
+}
+
+.calendar__body td.is-selected {
+  color: var(--sec2-text);
+  background: rgba(244, 239, 230, 0.1);
+  outline: 1px solid rgba(244, 239, 230, 0.35);
+  outline-offset: 2px;
+}
+
+/* "Рваная бумага" сверху/снизу — SVG strip */
+.invite-date__paper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 34px;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 1200px 34px;
+}
+
+.invite-date__paper--top {
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='34' viewBox='0 0 1200 34'%3E%3Cpath fill='%23efe9dd' d='M0,0 H1200 V18 C1130,10 1050,28 980,18 C900,7 835,28 760,18 C680,8 610,30 530,19 C450,7 380,31 300,19 C220,7 140,30 70,18 C40,13 18,10 0,14 Z'/%3E%3C/svg%3E");
+}
+
+.invite-date__paper--bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='34' viewBox='0 0 1200 34'%3E%3Cpath fill='%23efe9dd' d='M0,0 H1200 V18 C1130,10 1050,28 980,18 C900,7 835,28 760,18 C680,8 610,30 530,19 C450,7 380,31 300,19 C220,7 140,30 70,18 C40,13 18,10 0,14 Z'/%3E%3C/svg%3E");
+}
+
+/* Гирлянды — упрощённый SVG со "светлячками" */
+.invite-date__garland {
+  position: absolute;
+  pointer-events: none;
+  width: 520px;
+  height: 180px;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 240, 190, 0.25));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='180' viewBox='0 0 520 180'%3E%3Cpath d='M10 30 C120 10, 180 60, 280 40 C370 22, 420 40, 510 18' fill='none' stroke='%23d9d2c4' stroke-width='2' opacity='0.65'/%3E%3Cg%3E%3Ccircle cx='70' cy='24' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='150' cy='36' r='4' fill='%23fff1c6'/%3E%3Ccircle cx='230' cy='34' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='320' cy='30' r='4' fill='%23fff1c6'/%3E%3Ccircle cx='410' cy='28' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='490' cy='18' r='4' fill='%23fff1c6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.invite-date__garland--top {
+  top: -22px;
+  right: -40px;
+  transform: rotate(-8deg);
+}
+
+.invite-date__garland--bottom {
+  bottom: -34px;
+  left: -60px;
+  transform: rotate(12deg) scale(0.95);
+  opacity: 0.85;
+}
+
+/* Листочки (декор) — упрощённый SVG */
+.invite-date__leaf {
+  position: absolute;
+  pointer-events: none;
+  width: 220px;
+  height: 220px;
+  opacity: 0.55;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23c7d0c0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M40 180 C70 130, 110 100, 180 60'/%3E%3C/g%3E%3Cg fill='%23a8b49d'%3E%3Cellipse cx='70' cy='140' rx='18' ry='9' transform='rotate(-22 70 140)'/%3E%3Cellipse cx='120' cy='105' rx='18' ry='9' transform='rotate(-18 120 105)'/%3E%3Cellipse cx='165' cy='74' rx='20' ry='10' transform='rotate(-14 165 74)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.invite-date__leaf--left {
+  left: 6%;
+  top: 26%;
+  transform: rotate(-14deg);
+}
+
+.invite-date__leaf--right {
+  right: 8%;
+  bottom: 12%;
+  transform: rotate(18deg);
+  opacity: 0.45;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .invite-date__text br {
+    display: none;
+  }
+  .invite-date__garland {
+    width: 380px;
+    height: 140px;
+  }
+  .invite-date__leaf {
+    width: 170px;
+    height: 170px;
+  }
+}

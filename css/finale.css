@@ -1,0 +1,137 @@
+/* section9.css */
+
+:root {
+  --sec9-bg: #3a4230; /* как на тёмно‑зелёных секциях */
+  --sec9-text: #f4efe6;
+  --sec9-max: 1100px;
+
+  --sec9-serif: var(--base-serif);
+
+  --reveal-dur: var(--reveal-dur);
+  --reveal-ease: var(--reveal-ease);
+}
+
+.finale {
+  position: relative;
+  background: var(--sec9-bg);
+  color: var(--sec9-text);
+  overflow: hidden;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: clamp(44px, 6vw, 70px) 16px clamp(34px, 5vw, 64px);
+}
+
+/* Content */
+.finale__inner {
+  width: 100%;
+  max-width: var(--sec9-max);
+  display: grid;
+  justify-items: center;
+  gap: clamp(18px, 3vw, 28px);
+  text-align: center;
+}
+
+/* Title */
+.finale__title {
+  margin: 0;
+  font-family: var(--sec9-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  font-size: clamp(44px, 6.8vw, 86px);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+
+  /* reveal baseline */
+  transform: translateY(14px);
+  opacity: 0;
+}
+
+.finale__titleLine {
+  display: block;
+}
+
+/* Photo */
+.finale__photoWrap {
+  width: min(920px, 94vw);
+  margin: 0;
+}
+
+.finale__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+
+  /* reveal baseline */
+  transform: translateY(18px);
+  opacity: 0;
+}
+
+/* Garland bottom-left (decor, like screenshot) */
+.finale__garland {
+  position: absolute;
+  bottom: -44px;
+  left: -120px;
+  width: 720px;
+  height: 260px;
+  pointer-events: none;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.22));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='280' viewBox='0 0 760 280'%3E%3Cpath d='M20 180 C170 120, 260 210, 380 170 C500 130, 590 190, 740 120' fill='none' stroke='%23d9d2c4' stroke-width='2' opacity='0.55'/%3E%3Cg%3E%3Ccircle cx='110' cy='164' r='6' fill='%23ffe8a6'/%3E%3Ccircle cx='210' cy='186' r='5' fill='%23fff1c6'/%3E%3Ccircle cx='330' cy='176' r='6' fill='%23ffe8a6'/%3E%3Ccircle cx='460' cy='166' r='5' fill='%23fff1c6'/%3E%3Ccircle cx='580' cy='170' r='6' fill='%23ffe8a6'/%3E%3Ccircle cx='700' cy='122' r='5' fill='%23fff1c6'/%3E%3C/g%3E%3C/svg%3E");
+  animation: sec9Twinkle 2.8s ease-in-out infinite;
+}
+
+/* Reveal state controlled by JS */
+.finale.is-revealed .finale__title,
+.finale.is-revealed .finale__photo {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--reveal-dur) var(--reveal-ease),
+    transform var(--reveal-dur) var(--reveal-ease);
+}
+
+.finale.is-revealed .finale__title {
+  transition-delay: 80ms;
+}
+.finale.is-revealed .finale__photo {
+  transition-delay: 160ms;
+}
+
+@keyframes sec9Twinkle {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 0.98;
+  }
+}
+
+@media (max-width: 520px) {
+  .finale__garland {
+    width: 520px;
+    height: 200px;
+    left: -160px;
+    bottom: -60px;
+  }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .finale__garland {
+    animation: none;
+  }
+  .finale__title,
+  .finale__photo,
+  .finale.is-revealed .finale__title,
+  .finale.is-revealed .finale__photo {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,149 @@
+/* hero.css */
+
+:root {
+  --hero-bg: #f0ece5; /* ~ фон со скриншота */
+  --hero-text: #31342c; /* ~ тёмно-зелёный текст */
+  --hero-max: 980px;
+
+  --hero-font: var(--base-serif);
+}
+
+.hero {
+  position: relative;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  overflow: hidden;
+  min-height: 100svh;
+  display: grid;
+  place-items: start center;
+  padding: clamp(18px, 3vw, 34px) 16px 56px;
+}
+
+.hero__inner {
+  width: 100%;
+  max-width: var(--hero-max);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 18px;
+  text-align: center;
+}
+
+.hero__date {
+  font-family: var(--hero-font);
+  font-size: clamp(16px, 2.2vw, 22px);
+  letter-spacing: 0.08em;
+  margin: 0;
+  opacity: 0.95;
+
+  /* reveal baseline */
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.hero__title {
+  font-family: var(--hero-font);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+
+  /* Примерно как в макете: крупный заголовок с адаптивным размером */
+  font-size: clamp(44px, 7.2vw, 82px);
+
+  /* reveal baseline */
+  transform: translateY(14px);
+  opacity: 0;
+}
+
+.hero__titleLine {
+  display: block;
+}
+
+.hero__photoWrap {
+  position: relative;
+  width: min(360px, 86vw);
+  margin: clamp(10px, 3vw, 18px) 0 0;
+  padding: 0;
+}
+
+.hero__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  object-fit: cover;
+
+  /* лёгкая "бумажность" */
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1), 0 2px 0 rgba(0, 0, 0, 0.06);
+
+  /* reveal baseline */
+  transform: translateY(18px);
+  opacity: 0;
+}
+
+/* Декор: веточки. Делаем 2 элемента как на скриншоте (сверху слева и справа у фото). */
+.hero__decor {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.75;
+
+  /* Векторная веточка (упрощённая) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' viewBox='0 0 260 200'%3E%3Cg fill='none' stroke='%2392a08b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M40 180 C70 120, 110 80, 200 40'/%3E%3Cpath d='M90 120 C85 105, 78 98, 64 92'/%3E%3Cpath d='M120 92 C120 74, 126 62, 146 52'/%3E%3Cpath d='M150 70 C152 56, 164 46, 186 40'/%3E%3C/g%3E%3Cg fill='%23a8b49d'%3E%3Cellipse cx='66' cy='92' rx='16' ry='8' transform='rotate(-22 66 92)'/%3E%3Cellipse cx='146' cy='52' rx='16' ry='8' transform='rotate(-18 146 52)'/%3E%3Cellipse cx='186' cy='40' rx='18' ry='9' transform='rotate(-14 186 40)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero__decor--top-left {
+  top: 10px;
+  left: -10px;
+  width: clamp(180px, 24vw, 260px);
+  height: clamp(140px, 20vw, 200px);
+  transform: rotate(-6deg);
+}
+
+.hero__decor--mid-right {
+  top: -20px;
+  right: -60px;
+  width: clamp(190px, 26vw, 280px);
+  height: clamp(150px, 20vw, 210px);
+  transform: rotate(14deg);
+  opacity: 0.7;
+}
+
+/* Reveal state: управляется JS */
+.hero.is-revealed .hero__date,
+.hero.is-revealed .hero__title,
+.hero.is-revealed .hero__photo {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--reveal-dur) var(--reveal-ease),
+    transform var(--reveal-dur) var(--reveal-ease);
+}
+
+/* Небольшая каскадная задержка, чтобы выглядело "как в макете" */
+.hero.is-revealed .hero__date {
+  transition-delay: 60ms;
+}
+.hero.is-revealed .hero__title {
+  transition-delay: 120ms;
+}
+.hero.is-revealed .hero__photo {
+  transition-delay: 180ms;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__date,
+  .hero__title,
+  .hero__photo,
+  .hero.is-revealed .hero__date,
+  .hero.is-revealed .hero__title,
+  .hero.is-revealed .hero__photo {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,174 @@
+/* section7.css */
+
+:root {
+  --sec7-bg: #ebe6e0; /* ~ фон со скриншота */
+  --sec7-text: #2a2b26;
+  --sec7-muted: rgba(42, 43, 38, 0.62);
+  --sec7-accent: #626757; /* кнопка */
+
+  --sec7-serif: var(--base-serif);
+  --sec7-max: 980px;
+}
+
+.contacts {
+  position: relative;
+  background: var(--sec7-bg);
+  color: var(--sec7-text);
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(44px, 7vw, 78px) 16px clamp(52px, 7vw, 86px);
+}
+
+.contacts__inner {
+  width: 100%;
+  max-width: var(--sec7-max);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.contacts__title {
+  margin: 0 0 10px;
+  font-family: var(--sec7-serif);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-size: clamp(36px, 5.6vw, 64px);
+  line-height: 0.98;
+}
+
+.contacts__photoWrap {
+  width: min(320px, 80vw);
+  margin: 0;
+}
+
+.contacts__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contacts__text {
+  margin: 10px 0 6px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--sec7-muted);
+}
+
+.contacts__name {
+  margin: 6px 0 0;
+  font-family: var(--sec7-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: 18px;
+}
+
+.contacts__phone {
+  margin: 0;
+  font-family: var(--sec7-serif);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+  color: var(--sec7-text);
+  text-decoration: none;
+}
+
+.contacts__phone:hover {
+  text-decoration: underline;
+}
+
+.contacts__plane {
+  width: 26px;
+  height: 26px;
+  margin: 6px 0 4px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.85;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath fill='%232a2b26' d='M58 10 8 30c-1 .4-1 1.8 0 2.2l15 6 6 15c.4 1 1.8 1 2.2 0L54 4c.6-1.2 2.6-.2 4 6zM26 36l18-18-16 20-2 14-5-12-12-5 17-2z'/%3E%3C/svg%3E");
+}
+
+.contacts__cta {
+  margin-top: 6px;
+  min-width: 170px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 0;
+  background: var(--sec7-accent);
+  color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.contacts__cta:hover {
+  filter: brightness(1.05);
+}
+.contacts__cta:active {
+  transform: translateY(1px);
+}
+
+.contacts__cta:focus-visible {
+  outline: 2px solid rgba(98, 103, 87, 0.55);
+  outline-offset: 4px;
+}
+
+/* Status line (copy feedback) */
+.contacts__status {
+  margin: 8px 0 0;
+  min-height: 1.2em;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(42, 43, 38, 0.55);
+}
+
+/* Decorations (simple SVG leaves + flower) */
+.contacts__leaf,
+.contacts__flower {
+  position: absolute;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.contacts__leaf {
+  width: 260px;
+  height: 180px;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' viewBox='0 0 260 180'%3E%3Cg fill='none' stroke='%2392a08b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M20 160 C60 105, 120 75, 240 25'/%3E%3C/g%3E%3Cg fill='%23a8b49d'%3E%3Cellipse cx='70' cy='120' rx='18' ry='8' transform='rotate(-18 70 120)'/%3E%3Cellipse cx='140' cy='78' rx='18' ry='8' transform='rotate(-14 140 78)'/%3E%3Cellipse cx='210' cy='40' rx='20' ry='9' transform='rotate(-10 210 40)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.contacts__leaf--topRight {
+  top: 18px;
+  right: 34px;
+  transform: rotate(6deg);
+}
+
+.contacts__leaf--bottomLeft {
+  bottom: 40px;
+  left: 40px;
+  transform: rotate(-8deg);
+  opacity: 0.45;
+}
+
+.contacts__flower {
+  width: 90px;
+  height: 90px;
+  right: clamp(40px, 18vw, 260px);
+  top: 50%;
+  transform: translateY(-10%);
+  opacity: 0.9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg%3E%3Cellipse cx='45' cy='50' rx='10' ry='14' fill='%23ffd7df'/%3E%3Cellipse cx='35' cy='48' rx='10' ry='14' fill='%23ffe3e8'/%3E%3Cellipse cx='55' cy='48' rx='10' ry='14' fill='%23ffe3e8'/%3E%3Cellipse cx='40' cy='38' rx='10' ry='14' fill='%23fff0f3'/%3E%3Cellipse cx='50' cy='38' rx='10' ry='14' fill='%23fff0f3'/%3E%3Ccircle cx='45' cy='44' r='5' fill='%23f0b05e'/%3E%3Cpath d='M44 58 C40 68, 36 76, 30 84' stroke='%23c6d2b8' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@media (max-width: 520px) {
+  .contacts__flower {
+    display: none;
+  }
+}

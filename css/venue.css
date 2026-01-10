@@ -1,0 +1,147 @@
+/* section3.css */
+
+:root {
+  --sec3-bg: #ebe7df; /* ~ фон со скриншота */
+  --sec3-text: #2a2b26;
+  --sec3-accent: #626757; /* ~ тёмно-зелёные края/кнопка */
+  --sec3-max: 980px;
+
+  --sec3-serif: var(--base-serif);
+}
+
+.venue {
+  position: relative;
+  background: var(--sec3-bg);
+  color: var(--sec3-text);
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(44px, 7vw, 78px) 16px clamp(52px, 7vw, 86px);
+}
+
+.venue__inner {
+  width: 100%;
+  max-width: var(--sec3-max);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+/* Title + address */
+.venue__title {
+  margin: 0;
+  font-family: var(--sec3-serif);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-size: clamp(34px, 5.2vw, 64px);
+  line-height: 0.98;
+}
+
+.venue__address {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(42, 43, 38, 0.7);
+}
+
+/* Pin icon (SVG as background) */
+.venue__pin {
+  width: 40px;
+  height: 40px;
+  margin: 10px 0 6px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath fill='%232a2b26' d='M32 4c-11 0-20 9-20 20 0 14.3 18.4 34.4 19.2 35.3.4.4 1 .4 1.4 0C33.6 58.4 52 38.3 52 24 52 13 43 4 32 4zm0 29a9 9 0 1 1 0-18 9 9 0 0 1 0 18z'/%3E%3C/svg%3E");
+}
+
+/* Photo */
+.venue__photoWrap {
+  margin: 8px 0 2px;
+  width: min(360px, 86vw);
+}
+
+.venue__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA button */
+.venue__cta {
+  margin-top: 14px;
+  min-width: 170px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 0; /* как в макете: прямоугольная */
+  background: var(--sec3-accent);
+  color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.venue__cta:hover {
+  filter: brightness(1.05);
+}
+
+.venue__cta:active {
+  transform: translateY(1px);
+}
+
+.venue__cta:focus-visible {
+  outline: 2px solid rgba(98, 103, 87, 0.55);
+  outline-offset: 4px;
+}
+
+/* Torn edges (top/bottom) */
+.venue__torn {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 1200px 26px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='26' viewBox='0 0 1200 26'%3E%3Cpath fill='%23626757' d='M0 0h1200v10c-90 10-160-6-240 6-70 10-150-8-240 4-80 10-150-6-240 6-90 12-150-8-240 4C70 24 35 18 0 2V0z'/%3E%3C/svg%3E");
+}
+
+.venue__torn--top {
+  top: 0;
+}
+.venue__torn--bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+/* Flower decor at top center (simplified SVG) */
+.venue__flower {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 90px;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.95;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='100' viewBox='0 0 140 100'%3E%3Cg%3E%3Cellipse cx='70' cy='52' rx='18' ry='14' fill='%23f3f3f1'/%3E%3Cellipse cx='54' cy='50' rx='18' ry='14' fill='%23f7f7f6'/%3E%3Cellipse cx='86' cy='50' rx='18' ry='14' fill='%23f7f7f6'/%3E%3Cellipse cx='62' cy='36' rx='18' ry='14' fill='%23fbfbfa'/%3E%3Cellipse cx='78' cy='36' rx='18' ry='14' fill='%23fbfbfa'/%3E%3Ccircle cx='70' cy='44' r='7' fill='%23d2a15c'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .venue__pin {
+    margin-top: 6px;
+  }
+  .venue__cta {
+    width: min(220px, 90vw);
+  }
+}

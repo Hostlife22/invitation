@@ -1,0 +1,264 @@
+/* section8.css */
+
+:root {
+  --sec8-bg: #3a4230; /* тёмно‑зелёный */
+  --sec8-text: #f4efe6;
+  --sec8-muted: rgba(244, 239, 230, 0.78);
+  --sec8-line: rgba(244, 239, 230, 0.35);
+  --sec8-paper: #f8f3ec; /* "рваный" верх */
+  --sec8-max: 980px;
+
+  --sec8-serif: var(--base-serif);
+}
+
+.guest-form {
+  position: relative;
+  background: var(--sec8-bg);
+  color: var(--sec8-text);
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(54px, 7vw, 90px) 16px clamp(52px, 7vw, 90px);
+}
+
+.guest-form__inner {
+  width: 100%;
+  max-width: var(--sec8-max);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.guest-form__title {
+  margin: 0;
+  font-family: var(--sec8-serif);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-size: clamp(38px, 5.6vw, 68px);
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
+}
+
+.guest-form__intro {
+  margin: 4px 0 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--sec8-muted);
+}
+
+.guest-form__deadline {
+  margin: 0;
+  font-family: var(--sec8-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: clamp(32px, 4.6vw, 56px);
+  line-height: 1.1;
+}
+
+/* Form layout */
+.form {
+  width: min(520px, 92vw);
+  margin-top: 8px;
+  display: grid;
+  gap: 18px;
+  text-align: left;
+}
+
+.form__block {
+  display: grid;
+  gap: 10px;
+}
+
+.form__label {
+  font-family: var(--sec8-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--sec8-text);
+}
+
+.form__input {
+  width: 100%;
+  height: 46px;
+  border: 1px solid var(--sec8-line);
+  background: transparent;
+  color: var(--sec8-text);
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form__input::placeholder {
+  color: rgba(244, 239, 230, 0.45);
+}
+
+.form__input:focus {
+  border-color: rgba(244, 239, 230, 0.6);
+}
+
+.form__error {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 12px;
+  color: rgba(255, 224, 224, 0.95);
+}
+
+.form__hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: rgba(244, 239, 230, 0.55);
+}
+
+/* Checkbox/radio style (square outline) */
+.check {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  color: var(--sec8-muted);
+}
+
+.check__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.check__box {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(244, 239, 230, 0.6);
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+.check__text {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.check__input:focus-visible + .check__box {
+  outline: 2px solid rgba(244, 239, 230, 0.45);
+  outline-offset: 3px;
+}
+
+/* Checked mark */
+.check__input:checked + .check__box::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(244, 239, 230, 0.7);
+  border-radius: 2px;
+}
+
+/* Disabled prefs */
+#prefs-fieldset.is-disabled {
+  opacity: 0.5;
+}
+
+#prefs-fieldset.is-disabled .check {
+  cursor: not-allowed;
+}
+
+/* Submit button like in screenshot (light bar) */
+.form__submit {
+  height: 42px;
+  border: 1px solid rgba(244, 239, 230, 0.12);
+  background: var(--sec8-paper);
+  color: rgba(42, 43, 38, 0.75);
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.form__submit:hover {
+  filter: brightness(1.02);
+}
+
+.form__submit:focus-visible {
+  outline: 2px solid rgba(244, 239, 230, 0.45);
+  outline-offset: 4px;
+}
+
+.form__status {
+  margin: 0;
+  min-height: 1.2em;
+  text-align: center;
+  color: rgba(244, 239, 230, 0.75);
+  font-size: 12px;
+}
+
+/* Footer text */
+.guest-form__footer {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(244, 239, 230, 0.55);
+}
+
+/* Torn top edge */
+.guest-form__torn {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 1200px 26px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='26' viewBox='0 0 1200 26'%3E%3Cpath fill='%23f8f3ec' d='M0 0h1200v10c-90 10-160-6-240 6-70 10-150-8-240 4-80 10-150-6-240 6-90 12-150-8-240 4C70 24 35 18 0 22V0z'/%3E%3C/svg%3E");
+}
+
+.guest-form__torn--top {
+  top: 0;
+}
+
+/* Garland + flower */
+.guest-form__garland {
+  position: absolute;
+  top: -28px;
+  right: -70px;
+  width: 640px;
+  height: 220px;
+  pointer-events: none;
+  opacity: 0.95;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.25));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='240' viewBox='0 0 640 240'%3E%3Cpath d='M10 70 C160 35, 250 105, 360 78 C470 52, 540 82, 630 40' fill='none' stroke='%23d9d2c4' stroke-width='2' opacity='0.6'/%3E%3Cg%3E%3Ccircle cx='95' cy='60' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='180' cy='82' r='4' fill='%23fff1c6'/%3E%3Ccircle cx='280' cy='76' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='380' cy='70' r='4' fill='%23fff1c6'/%3E%3Ccircle cx='490' cy='66' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='600' cy='44' r='4' fill='%23fff1c6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.guest-form__flower {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 90px;
+  pointer-events: none;
+  opacity: 0.95;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='100' viewBox='0 0 140 100'%3E%3Cg%3E%3Cellipse cx='70' cy='52' rx='18' ry='14' fill='%23f3f3f1'/%3E%3Cellipse cx='54' cy='50' rx='18' ry='14' fill='%23f7f7f6'/%3E%3Cellipse cx='86' cy='50' rx='18' ry='14' fill='%23f7f7f6'/%3E%3Cellipse cx='62' cy='36' rx='18' ry='14' fill='%23fbfbfa'/%3E%3Cellipse cx='78' cy='36' rx='18' ry='14' fill='%23fbfbfa'/%3E%3Ccircle cx='70' cy='44' r='7' fill='%23d2a15c'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@media (max-width: 520px) {
+  .guest-form__garland {
+    width: 420px;
+    height: 160px;
+    right: -90px;
+  }
+  .form__label {
+    font-size: 16px;
+  }
+  .check__text {
+    font-size: 15px;
+  }
+}

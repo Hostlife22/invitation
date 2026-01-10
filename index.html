@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Свадебное приглашение Дмитрия и Виктории</title>
+	<meta name="description"
+		content="Официальное приглашение на свадьбу Дмитрия и Виктории. Присоединяйтесь к нам 27 июня 2026 года в River Hall.">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+	<!-- Open Graph / Facebook / Telegram -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://example.com/">
+	<meta property="og:title" content="Свадебное приглашение Дмитрия и Виктории">
+	<meta property="og:description"
+		content="Официальное приглашение на свадьбу Дмитрия и Виктории. Присоединяйтесь к нам 27 июня 2026 года в River Hall.">
+	<meta property="og:image" content="https://example.com/assets/invitation.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:type" content="image/jpeg">
+
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Свадебное приглашение Дмитрия и Виктории">
+	<meta name="twitter:description"
+		content="Официальное приглашение на свадьбу Дмитрия и Виктории. Присоединяйтесь к нам 27 июня 2026 года в River Hall.">
+	<meta name="twitter:image" content="https://example.com/assets/invitation.jpg">
+
+	<link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+	<!-- HERO: start -->
+	<section class="hero" id="hero" aria-label="Приглашение">
+		<div class="hero__decor hero__decor--top-left" aria-hidden="true"></div>
+
+		<div class="hero__inner">
+			<p class="hero__date" aria-label="Дата мероприятия">27 · 06 · 26</p>
+
+			<h1 class="hero__title" aria-label="Имена">
+				<span class="hero__titleLine">ДМИТРИЙ</span>
+				<span class="hero__titleLine">ВИКТОРИЯ</span>
+			</h1>
+
+			<figure class="hero__photoWrap">
+				<img class="hero__photo" src="assets/hero-photo.jpg" alt="Фотография пары" loading="lazy"
+					decoding="async" width="520" height="680" />
+				<div class="hero__decor hero__decor--mid-right" aria-hidden="true"></div>
+			</figure>
+		</div>
+	</section>
+	<!-- HERO: end -->
+
+	<!-- Section #2: start -->
+	<section class="invite-date" id="invite-date" aria-label="Приглашение и дата свадьбы" data-year="2026"
+		data-month="6" data-day="27">
+		<!-- Decorative layers (no editor UI) -->
+		<div class="invite-date__paper invite-date__paper--top" aria-hidden="true"></div>
+		<div class="invite-date__paper invite-date__paper--bottom" aria-hidden="true"></div>
+
+		<div class="invite-date__garland invite-date__garland--top" aria-hidden="true"></div>
+		<div class="invite-date__garland invite-date__garland--bottom" aria-hidden="true"></div>
+
+		<div class="invite-date__leaf invite-date__leaf--left" aria-hidden="true"></div>
+		<div class="invite-date__leaf invite-date__leaf--right" aria-hidden="true"></div>
+
+		<div class="invite-date__inner">
+			<h2 class="invite-date__title">ДОРОГИЕ ДРУЗЬЯ!</h2>
+
+			<p class="invite-date__script" aria-label="Слоган">Save the date!</p>
+
+			<p class="invite-date__text">
+				Это официальное приглашение на нашу<br />
+				свадьбу! А получили вы его потому, что мы очень<br />
+				хотим видеть вас в этот день рядом с нами!
+			</p>
+
+			<p class="invite-date__bigDate" aria-label="Дата свадьбы">27 · 06 · 26</p>
+
+			<div class="invite-date__calendarWrap" aria-label="Календарь">
+				<p class="invite-date__month" id="invite-month">ИЮНЬ</p>
+
+				<table class="calendar" aria-describedby="invite-month">
+					<thead class="calendar__head">
+						<tr>
+							<th scope="col">ПН</th>
+							<th scope="col">ВТ</th>
+							<th scope="col">СР</th>
+							<th scope="col">ЧТ</th>
+							<th scope="col">ПТ</th>
+							<th scope="col">СБ</th>
+							<th scope="col">ВС</th>
+						</tr>
+					</thead>
+
+					<tbody class="calendar__body" id="calendar-body">
+						<!-- JS заполнит календарь -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<!-- Section #2: end -->
+
+	<!-- Section #3: start -->
+	<section class="venue" id="venue" aria-label="Площадка" data-venue-name="RIVER HALL"
+		data-address="Гродно, ул. Поповича, 23">
+		<!-- torn edges (no editor UI) -->
+		<div class="venue__torn venue__torn--top" aria-hidden="true"></div>
+		<div class="venue__torn venue__torn--bottom" aria-hidden="true"></div>
+
+		<!-- top flower decor -->
+		<div class="venue__flower" aria-hidden="true"></div>
+
+		<div class="venue__inner">
+			<h2 class="venue__title">RIVER HALL</h2>
+			<p class="venue__address" id="venue-address">Гродно, ул. Поповича, 23</p>
+
+			<div class="venue__pin" aria-hidden="true"></div>
+
+			<figure class="venue__photoWrap">
+				<img class="venue__photo" src="assets/venue.jpg" alt="Фотография площадки" loading="lazy"
+					decoding="async" width="520" height="360" />
+			</figure>
+
+			<button class="venue__cta" type="button" id="venue-route-btn">
+				КАК ДОБРАТЬСЯ
+			</button>
+		</div>
+	</section>
+	<!-- Section #3: end -->
+
+	<!-- Section #4: start -->
+	<section class="timeline" id="timeline" aria-label="Тайминг дня">
+		<!-- torn edges (paper) -->
+		<div class="timeline__torn timeline__torn--top" aria-hidden="true"></div>
+		<div class="timeline__torn timeline__torn--bottom" aria-hidden="true"></div>
+
+		<!-- garlands (decor) -->
+		<div class="timeline__garland timeline__garland--top" aria-hidden="true"></div>
+		<div class="timeline__garland timeline__garland--bottom" aria-hidden="true"></div>
+
+		<!-- small flower (decor) -->
+		<div class="timeline__flower" aria-hidden="true"></div>
+
+		<div class="timeline__inner">
+			<h2 class="timeline__title">ТАЙМИНГ</h2>
+			<p class="timeline__script" aria-label="Подзаголовок">Of the day</p>
+
+			<ul class="timeline__grid" role="list" id="timeline-grid">
+				<li class="timeline__item" tabindex="0" data-time="15:30">
+					<p class="timeline__time">15:30</p>
+					<p class="timeline__label">Сбор гостей</p>
+				</li>
+
+				<li class="timeline__item" tabindex="0" data-time="16:00">
+					<p class="timeline__time">16:00</p>
+					<p class="timeline__label">Церемония</p>
+				</li>
+
+				<li class="timeline__item" tabindex="0" data-time="17:00">
+					<p class="timeline__time">17:00</p>
+					<p class="timeline__label">Банкет</p>
+				</li>
+
+				<li class="timeline__item" tabindex="0" data-time="23:00">
+					<p class="timeline__time">23:00</p>
+					<p class="timeline__label">Завершение вечера</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- Section #5: start -->
+	<section class="countdown" id="countdown" aria-label="Обратный отсчёт до свадьбы"
+		data-target="2026-06-27T00:00:00+03:00">
+		<!-- гирлянды (декор) -->
+		<div class="countdown__garland countdown__garland--top" aria-hidden="true"></div>
+		<div class="countdown__garland countdown__garland--bottom" aria-hidden="true"></div>
+
+		<div class="countdown__inner">
+			<div class="countdown__card" role="group" aria-label="Таймер до события">
+				<h2 class="countdown__title">ДО СВАДЬБЫ<br />ОСТАЛОСЬ</h2>
+
+				<p class="countdown__script" aria-label="Подпись">Waiting for you!</p>
+
+				<div class="countdown__row" aria-label="Значения таймера">
+					<span class="countdown__line" aria-hidden="true"></span>
+
+					<div class="countdown__metric">
+						<p class="countdown__value" id="cd-days">0</p>
+						<p class="countdown__label">Дней</p>
+					</div>
+
+					<div class="countdown__metric">
+						<p class="countdown__value" id="cd-hours">00</p>
+						<p class="countdown__label">Часов</p>
+					</div>
+
+					<div class="countdown__metric">
+						<p class="countdown__value" id="cd-mins">00</p>
+						<p class="countdown__label">Минут</p>
+					</div>
+
+					<div class="countdown__metric">
+						<p class="countdown__value" id="cd-secs">00</p>
+						<p class="countdown__label">Секунд</p>
+					</div>
+
+					<span class="countdown__line" aria-hidden="true"></span>
+				</div>
+
+				<p class="countdown__status" id="cd-status" aria-live="polite"></p>
+			</div>
+		</div>
+	</section>
+	<!-- Section #5: end -->
+
+	<!-- Section #6: start -->
+	<section class="wishes" id="wishes" aria-label="Пожелания">
+		<!-- torn edge (bottom like on screenshot) -->
+		<div class="wishes__torn wishes__torn--bottom" aria-hidden="true"></div>
+
+		<div class="wishes__inner">
+			<h2 class="wishes__title">ПОЖЕЛАНИЯ</h2>
+			<p class="wishes__script">Our wishes</p>
+
+			<div class="wishes__slider" aria-label="Слайдер пожеланий">
+				<button class="wishes__nav wishes__nav--prev" type="button" aria-label="Предыдущее пожелание"
+					data-action="prev"></button>
+
+				<div class="wishes__viewport">
+					<p class="wishes__text" id="wishes-text" aria-live="polite"></p>
+					<p class="wishes__counter" id="wishes-counter" aria-label="Счётчик слайдов"></p>
+				</div>
+
+				<button class="wishes__nav wishes__nav--next" type="button" aria-label="Следующее пожелание"
+					data-action="next"></button>
+			</div>
+		</div>
+	</section>
+	<!-- Section #6: end -->
+
+	<!-- Section #7: start -->
+	<section class="contacts" id="contacts" aria-label="Контакты организатора" data-contact-name="ИРИНА"
+		data-contact-phone="+375 29 882 5254">
+		<!-- Decorative leaves/flower (no editor UI) -->
+		<div class="contacts__leaf contacts__leaf--topRight" aria-hidden="true"></div>
+		<div class="contacts__leaf contacts__leaf--bottomLeft" aria-hidden="true"></div>
+		<div class="contacts__flower" aria-hidden="true"></div>
+
+		<div class="contacts__inner">
+			<h2 class="contacts__title">КОНТАКТЫ</h2>
+
+			<figure class="contacts__photoWrap">
+				<img class="contacts__photo" src="assets/contacts.jpg" alt="Фотография" loading="lazy" decoding="async"
+					width="360" height="520" />
+			</figure>
+
+			<p class="contacts__text">
+				По всем вопросам, связанным<br />
+				с мероприятием, вы можете<br />
+				обратиться к нашему организатору
+			</p>
+
+			<p class="contacts__name" id="contact-name">ИРИНА</p>
+
+			<a class="contacts__phone" id="contact-phone" href="tel:+375298825254">
+				+375 29 882 5254
+			</a>
+
+			<div class="contacts__plane" aria-hidden="true"></div>
+
+			<button class="contacts__cta" type="button" id="contact-cta">
+				СВЯЗАТЬСЯ
+			</button>
+
+			<p class="contacts__status" id="contact-status" aria-live="polite"></p>
+		</div>
+	</section>
+	<!-- Section #7: end -->
+
+	<!-- Section #8: start -->
+	<section class="guest-form" id="guest-form" aria-label="Анкета гостя">
+		<!-- torn edge + garland/flower decor (no editor UI) -->
+		<div class="guest-form__torn guest-form__torn--top" aria-hidden="true"></div>
+		<div class="guest-form__garland" aria-hidden="true"></div>
+		<div class="guest-form__flower" aria-hidden="true"></div>
+
+		<div class="guest-form__inner">
+			<h2 class="guest-form__title">АНКЕТА ГОСТЯ</h2>
+
+			<p class="guest-form__intro">
+				Пожалуйста, подтвердите ваше<br />
+				присутствие на нашей свадьбе до
+			</p>
+
+			<p class="guest-form__deadline" aria-label="Дедлайн ответа">01 МАРТА 2026</p>
+
+			<form class="form" id="rsvp-form" novalidate>
+				<!-- Name -->
+				<div class="form__block">
+					<label class="form__label" for="guest-name">ВАШЕ ИМЯ И ФАМИЛИЯ</label>
+					<input class="form__input" id="guest-name" name="name" type="text" inputmode="text"
+						autocomplete="name" placeholder="Имя и Фамилия" required />
+					<p class="form__error" id="err-name" role="status" aria-live="polite"></p>
+				</div>
+
+				<!-- Attendance (single-choice) -->
+				<fieldset class="form__block" aria-describedby="err-attendance">
+					<legend class="form__label">ПЛАНИРУЕТЕ ЛИ ВЫ ПРИСУТСТВОВАТЬ?</legend>
+
+					<label class="check">
+						<input class="check__input" type="radio" name="attendance" value="yes" required />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">С удовольствием приду!</span>
+					</label>
+
+					<label class="check">
+						<input class="check__input" type="radio" name="attendance" value="no" required />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">К сожалению, не смогу</span>
+					</label>
+
+					<p class="form__error" id="err-attendance" role="status" aria-live="polite"></p>
+				</fieldset>
+
+				<!-- Preferences (multi-choice) -->
+				<fieldset class="form__block" id="prefs-fieldset">
+					<legend class="form__label">ВАШИ ПРЕДПОЧТЕНИЯ</legend>
+
+					<label class="check">
+						<input class="check__input" type="checkbox" name="prefs" value="Шампанское" />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">Шампанское</span>
+					</label>
+
+					<label class="check">
+						<input class="check__input" type="checkbox" name="prefs" value="Белое вино" />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">Белое вино</span>
+					</label>
+
+					<label class="check">
+						<input class="check__input" type="checkbox" name="prefs" value="Красное вино" />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">Красное вино</span>
+					</label>
+
+					<label class="check">
+						<input class="check__input" type="checkbox" name="prefs" value="Виски" />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">Виски</span>
+					</label>
+
+					<label class="check">
+						<input class="check__input" type="checkbox" name="prefs" value="Водка" />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">Водка</span>
+					</label>
+
+					<label class="check">
+						<input class="check__input" type="checkbox" name="prefs" value="Не пью алкоголь" />
+						<span class="check__box" aria-hidden="true"></span>
+						<span class="check__text">Не пью алкоголь</span>
+					</label>
+
+					<p class="form__hint" id="prefs-hint">Если вы не сможете прийти, предпочтения можно не выбирать.</p>
+				</fieldset>
+
+				<button class="form__submit" type="submit" id="rsvp-submit">ПОДТВЕРДИТЬ</button>
+
+				<p class="form__status" id="rsvp-status" role="status" aria-live="polite"></p>
+			</form>
+
+			<p class="guest-form__footer">
+				До скорой встречи!<br />
+				С любовью
+			</p>
+		</div>
+	</section>
+	<!-- Section #8: end -->
+
+	<!-- Section #9: start -->
+	<section class="finale" id="finale" aria-label="Финальный экран">
+		<!-- decor -->
+		<div class="finale__garland" aria-hidden="true"></div>
+
+		<div class="finale__inner">
+			<h2 class="finale__title" aria-label="Имена">
+				<span class="finale__titleLine">ДМИТРИЙ &</span>
+				<span class="finale__titleLine">ВИКТОРИЯ</span>
+			</h2>
+
+			<figure class="finale__photoWrap">
+				<img class="finale__photo" src="assets/finale.jpg" alt="Фотография пары" loading="lazy" decoding="async"
+					width="920" height="620" />
+			</figure>
+		</div>
+	</section>
+	<!-- Section #9: end -->
+
+	<script type="module" src="src/main.js"></script>
+</body>
+
+</html>

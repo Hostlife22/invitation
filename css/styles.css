@@ -1,0 +1,13 @@
+/* Главный CSS файл для приложения приглашения */
+
+/* Импорт всех стилей */
+@import url("./base.css");
+@import url("./hero.css");
+@import url("./invite-date.css");
+@import url("./venue.css");
+@import url("./timeline.css");
+@import url("./countdown.css");
+@import url("./wishes.css");
+@import url("./contacts.css");
+@import url("./guest-form.css");
+@import url("./finale.css");
