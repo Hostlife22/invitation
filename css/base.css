@@ -1,5 +1,8 @@
 /* base.css - Базовые стили и переменные для всего приложения */
 
+/* Google Fonts - Playfair Display */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
 /* Основные шрифты */
 @font-face {
   font-family: "InviteSerif";
@@ -21,7 +24,7 @@
 
 :root {
   /* Фолбэки на случай отсутствия оригинального шрифта */
-  --base-serif: "InviteSerif", "Cormorant Garamond", "Times New Roman", serif;
+  --base-serif: "Playfair Display", "InviteSerif", "Cormorant Garamond", "Times New Roman", serif;
   --base-script: "InviteScript", "Great Vibes", "Brush Script MT", cursive;
 
   /* Общие параметры анимации */

@@ -28,6 +28,7 @@
   justify-items: center;
   text-align: center;
   gap: 10px;
+  position: relative;
 }
 
 .contacts__title {
@@ -128,33 +129,37 @@
   color: rgba(42, 43, 38, 0.55);
 }
 
-/* Decorations (simple SVG leaves + flower) */
+/* Decorations (leaves from assets/branches + flower) */
 .contacts__leaf,
 .contacts__flower {
   position: absolute;
   pointer-events: none;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 .contacts__leaf {
-  width: 260px;
-  height: 180px;
-  opacity: 0.55;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' viewBox='0 0 260 180'%3E%3Cg fill='none' stroke='%2392a08b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M20 160 C60 105, 120 75, 240 25'/%3E%3C/g%3E%3Cg fill='%23a8b49d'%3E%3Cellipse cx='70' cy='120' rx='18' ry='8' transform='rotate(-18 70 120)'/%3E%3Cellipse cx='140' cy='78' rx='18' ry='8' transform='rotate(-14 140 78)'/%3E%3Cellipse cx='210' cy='40' rx='20' ry='9' transform='rotate(-10 210 40)'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.52;
 }
 
 .contacts__leaf--topRight {
-  top: 18px;
-  right: 34px;
-  transform: rotate(6deg);
+  top: clamp(-177px, -17vh, 20px);
+  right: clamp(20px, 4vw, 50px);
+  width: clamp(200px, 26vw, 300px);
+  height: clamp(280px, 36vw, 337px);
+  background-image: url("../assets/branches/branch-3.png");
+  transform: scaleX(-1) rotate(56deg);
 }
 
 .contacts__leaf--bottomLeft {
-  bottom: 40px;
-  left: 40px;
-  transform: rotate(-8deg);
-  opacity: 0.45;
+  bottom: clamp(32px, 2vh, 60px);
+  left: clamp(29px, 10vw, 86px);
+  width: clamp(180px, 24vw, 280px);
+  height: clamp(250px, 33vw, 319px);
+  background-image: url("../assets/branches/branch-3.png");
+  transform: scaleX(-1) rotate(-132deg);
+  opacity: 0.42;
 }
 
 .contacts__flower {
@@ -167,7 +172,39 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg%3E%3Cellipse cx='45' cy='50' rx='10' ry='14' fill='%23ffd7df'/%3E%3Cellipse cx='35' cy='48' rx='10' ry='14' fill='%23ffe3e8'/%3E%3Cellipse cx='55' cy='48' rx='10' ry='14' fill='%23ffe3e8'/%3E%3Cellipse cx='40' cy='38' rx='10' ry='14' fill='%23fff0f3'/%3E%3Cellipse cx='50' cy='38' rx='10' ry='14' fill='%23fff0f3'/%3E%3Ccircle cx='45' cy='44' r='5' fill='%23f0b05e'/%3E%3Cpath d='M44 58 C40 68, 36 76, 30 84' stroke='%23c6d2b8' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+@media (max-width: 768px) {
+  .contacts__leaf--topRight {
+    width: clamp(150px, 30vw, 200px);
+    height: clamp(210px, 42vw, 280px);
+    right: clamp(10px, 2vw, 20px);
+    top: 15px;
+  }
+
+  .contacts__leaf--bottomLeft {
+    width: clamp(130px, 28vw, 180px);
+    height: clamp(182px, 39vw, 250px);
+    left: clamp(10px, 2vw, 20px);
+    bottom: 35px;
+  }
+}
+
 @media (max-width: 520px) {
+  .contacts__leaf--topRight {
+    width: 130px;
+    height: 182px;
+    right: 5px;
+    top: 10px;
+    transform: rotate(15deg);
+  }
+
+  .contacts__leaf--bottomLeft {
+    width: 110px;
+    height: 154px;
+    left: 5px;
+    bottom: 25px;
+    transform: rotate(-12deg);
+  }
+
   .contacts__flower {
     display: none;
   }

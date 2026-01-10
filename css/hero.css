@@ -1,41 +1,42 @@
 /* hero.css */
 
 :root {
-  --hero-bg: #f0ece5; /* ~ фон со скриншота */
-  --hero-text: #31342c; /* ~ тёмно-зелёный текст */
-  --hero-max: 980px;
+  --hero-bg: #f5f1eb; /* Светлый бежевый фон как в дизайне */
+  --hero-text: #2d2f29; /* Тёмно-серый текст */
+  --hero-max: 1200px;
 
-  --hero-font: var(--base-serif);
+  --hero-font: "Playfair Display", var(--base-serif);
 }
 
 .hero {
-  position: relative;
   background: var(--hero-bg);
   color: var(--hero-text);
   overflow: hidden;
   min-height: 100svh;
-  display: grid;
-  place-items: start center;
-  padding: clamp(18px, 3vw, 34px) 16px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 8vh, 80px) 20px clamp(60px, 10vh, 100px);
 }
 
 .hero__inner {
   width: 100%;
   max-width: var(--hero-max);
   margin: 0 auto;
-  display: grid;
-  justify-items: center;
-  align-content: start;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vh, 24px);
   text-align: center;
 }
 
 .hero__date {
   font-family: var(--hero-font);
-  font-size: clamp(16px, 2.2vw, 22px);
-  letter-spacing: 0.08em;
+  font-size: clamp(14px, 1.8vw, 20px);
+  letter-spacing: 0.15em;
   margin: 0;
-  opacity: 0.95;
+  font-weight: 400;
 
   /* reveal baseline */
   transform: translateY(10px);
@@ -43,14 +44,16 @@
 }
 
 .hero__title {
+  position: relative;
+
   font-family: var(--hero-font);
   font-weight: 400;
   margin: 0;
-  letter-spacing: 0.06em;
-  line-height: 0.92;
+  letter-spacing: 0.08em;
+  line-height: 1;
 
-  /* Примерно как в макете: крупный заголовок с адаптивным размером */
-  font-size: clamp(44px, 7.2vw, 82px);
+  /* Крупный заголовок как в дизайне */
+  font-size: clamp(48px, 8vw, 90px);
 
   /* reveal baseline */
   transform: translateY(14px);
@@ -63,8 +66,8 @@
 
 .hero__photoWrap {
   position: relative;
-  width: min(360px, 86vw);
-  margin: clamp(10px, 3vw, 18px) 0 0;
+  width: min(420px, 90vw);
+  margin: clamp(20px, 4vh, 40px) 0 0;
   padding: 0;
 }
 
@@ -72,45 +75,81 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 2px;
+  border-radius: 0;
   object-fit: cover;
 
-  /* лёгкая "бумажность" */
-  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.1), 0 2px 0 rgba(0, 0, 0, 0.06);
+  /* Тень как в дизайне */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
 
   /* reveal baseline */
   transform: translateY(18px);
   opacity: 0;
 }
 
-/* Декор: веточки. Делаем 2 элемента как на скриншоте (сверху слева и справа у фото). */
+/* Декор: веточки из assets/branches */
 .hero__decor {
   position: absolute;
   pointer-events: none;
   user-select: none;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.75;
-
-  /* Векторная веточка (упрощённая) */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' viewBox='0 0 260 200'%3E%3Cg fill='none' stroke='%2392a08b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M40 180 C70 120, 110 80, 200 40'/%3E%3Cpath d='M90 120 C85 105, 78 98, 64 92'/%3E%3Cpath d='M120 92 C120 74, 126 62, 146 52'/%3E%3Cpath d='M150 70 C152 56, 164 46, 186 40'/%3E%3C/g%3E%3Cg fill='%23a8b49d'%3E%3Cellipse cx='66' cy='92' rx='16' ry='8' transform='rotate(-22 66 92)'/%3E%3Cellipse cx='146' cy='52' rx='16' ry='8' transform='rotate(-18 146 52)'/%3E%3Cellipse cx='186' cy='40' rx='18' ry='9' transform='rotate(-14 186 40)'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+  opacity: 0.7;
+  z-index: 1;
 }
 
 .hero__decor--top-left {
-  top: 10px;
-  left: -10px;
-  width: clamp(180px, 24vw, 260px);
-  height: clamp(140px, 20vw, 200px);
-  transform: rotate(-6deg);
+  top: clamp(-155px, -16vh, -10px);
+  left: clamp(-229px, -17vw, -15px);
+  width: clamp(180px, 24vw, 280px);
+  height: clamp(240px, 32vw, 350px);
+  background-image: url("../assets/branches/branch-2.png");
+  transform: rotate(14deg);
 }
 
 .hero__decor--mid-right {
-  top: -20px;
-  right: -60px;
-  width: clamp(190px, 26vw, 280px);
-  height: clamp(150px, 20vw, 210px);
-  transform: rotate(14deg);
-  opacity: 0.7;
+  top: clamp(-150px, -16vh, -10px);
+  right: clamp(-141px, -11vw, -30px);
+  width: clamp(200px, 26vw, 300px);
+  height: clamp(220px, 28vw, 340px);
+  background-image: url("../assets/branches/branch-3.png");
+  transform: scaleX(-1) rotate(57deg);
+  opacity: 0.65;
+}
+
+/* Мобильная адаптация для веточек */
+@media (max-width: 768px) {
+  .hero__decor--top-left {
+    width: clamp(130px, 32vw, 180px);
+    height: clamp(175px, 42vw, 240px);
+    left: -10px;
+    top: 15px;
+    transform: rotate(-10deg);
+  }
+
+  .hero__decor--mid-right {
+    width: clamp(140px, 34vw, 190px);
+    height: clamp(155px, 38vw, 210px);
+    right: -15px;
+    top: -5px;
+    transform: rotate(18deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__decor--top-left {
+    width: 110px;
+    height: 150px;
+    left: -8px;
+    top: 10px;
+  }
+
+  .hero__decor--mid-right {
+    width: 120px;
+    height: 135px;
+    right: -12px;
+    top: 0;
+  }
 }
 
 /* Reveal state: управляется JS */
@@ -132,6 +171,51 @@
 }
 .hero.is-revealed .hero__photo {
   transition-delay: 180ms;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  .hero {
+    padding: clamp(30px, 6vh, 50px) 16px clamp(40px, 8vh, 60px);
+  }
+
+  .hero__date {
+    font-size: clamp(12px, 3.5vw, 16px);
+    letter-spacing: 0.12em;
+  }
+
+  .hero__title {
+    font-size: clamp(38px, 11vw, 56px);
+    letter-spacing: 0.06em;
+  }
+
+  .hero__photoWrap {
+    width: min(320px, 85vw);
+    margin: clamp(15px, 3vh, 25px) 0 0;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .hero {
+    padding: 25px 12px 35px;
+  }
+
+  .hero__inner {
+    gap: clamp(12px, 2.5vh, 18px);
+  }
+
+  .hero__date {
+    font-size: 11px;
+  }
+
+  .hero__title {
+    font-size: clamp(32px, 12vw, 48px);
+  }
+
+  .hero__photoWrap {
+    width: min(280px, 82vw);
+  }
 }
 
 /* Reduced motion */

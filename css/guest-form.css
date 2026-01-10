@@ -5,7 +5,7 @@
   --sec8-text: #f4efe6;
   --sec8-muted: rgba(244, 239, 230, 0.78);
   --sec8-line: rgba(244, 239, 230, 0.35);
-  --sec8-paper: #f8f3ec; /* "рваный" верх */
+  --sec8-paper: #ebe6e0; /* "рваный" верх */
   --sec8-max: 980px;
 
   --sec8-serif: var(--base-serif);
