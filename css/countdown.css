@@ -1,23 +1,21 @@
 /* section5.css */
 
 :root {
-  --sec5-bg: #39412f; /* тёмно‑зелёный как в скрине */
-  --sec5-card: #f7f2ec; /* светлая карточка */
-  --sec5-text: #2a2b26;
   --sec5-accent: rgba(42, 43, 38, 0.45);
-
-  --sec5-serif: var(--base-serif);
-  --sec5-script: var(--base-script);
 }
 
 .countdown {
   position: relative;
-  background: var(--sec5-bg);
+  background: var(--bg-primary);
   min-height: 100svh;
   overflow: hidden;
   display: grid;
   place-items: center;
   padding: clamp(30px, 6vw, 70px) 16px;
+}
+
+.countdown__torn {
+  background-color: var(--bg-secondary);
 }
 
 .countdown__inner {
@@ -28,34 +26,37 @@
 
 .countdown__card {
   width: min(760px, 92vw);
-  background: var(--sec5-card);
-  border-radius: 2px;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+  background: var(--bg-primary);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   padding: clamp(28px, 4vw, 56px) clamp(18px, 4vw, 56px);
   text-align: center;
   position: relative;
+  border: 25px solid var(--bg-secondary);
 }
 
 .countdown__title {
   margin: 0;
-  font-family: var(--sec5-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.08em;
   line-height: 1.02;
   font-size: clamp(34px, 5.2vw, 64px);
-  color: var(--sec5-text);
+  color: var(--text-primary);
 }
 
 .countdown__script {
   margin: 16px 0 20px;
-  font-family: var(--sec5-script);
+  font-family: var(--base-script);
   font-size: clamp(22px, 3.2vw, 34px);
   color: rgba(42, 43, 38, 0.55);
 }
 
 .countdown__row {
   display: grid;
-  grid-template-columns: 1fr auto auto auto 1fr;
+  grid-template-columns: 1fr auto auto auto auto 1fr;
   gap: clamp(14px, 3vw, 44px);
   align-items: center;
   justify-content: center;
@@ -63,8 +64,6 @@
 }
 
 .countdown__line {
-  height: 1px;
-  background: rgba(42, 43, 38, 0.12);
   width: clamp(40px, 10vw, 140px);
 }
 
@@ -74,11 +73,11 @@
 
 .countdown__value {
   margin: 0;
-  font-family: var(--sec5-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.04em;
   font-size: clamp(26px, 3.4vw, 44px);
-  color: var(--sec5-text);
+  color: var(--text-primary);
 }
 
 .countdown__label {

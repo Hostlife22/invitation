@@ -1,16 +1,12 @@
 /* hero.css */
 
 :root {
-  --hero-bg: #f5f1eb; /* Светлый бежевый фон как в дизайне */
-  --hero-text: #2d2f29; /* Тёмно-серый текст */
   --hero-max: 1200px;
-
-  --hero-font: "Playfair Display", var(--base-serif);
 }
 
 .hero {
-  background: var(--hero-bg);
-  color: var(--hero-text);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   overflow: hidden;
   min-height: 100svh;
   display: flex;
@@ -32,7 +28,7 @@
 }
 
 .hero__date {
-  font-family: var(--hero-font);
+  font-family: var(--base-serif);
   font-size: clamp(14px, 1.8vw, 20px);
   letter-spacing: 0.15em;
   margin: 0;
@@ -46,7 +42,7 @@
 .hero__title {
   position: relative;
 
-  font-family: var(--hero-font);
+  font-family: var(--base-serif);
   font-weight: 400;
   margin: 0;
   letter-spacing: 0.08em;

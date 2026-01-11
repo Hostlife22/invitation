@@ -1,19 +1,16 @@
 /* section7.css */
 
 :root {
-  --sec7-bg: #f6f1eb; /* ~ фон со скриншота */
-  --sec7-text: #2a2b26;
   --sec7-muted: rgba(42, 43, 38, 0.62);
   --sec7-accent: #626757; /* кнопка */
 
-  --sec7-serif: var(--base-serif);
   --sec7-max: 980px;
 }
 
 .contacts {
   position: relative;
-  background: var(--sec7-bg);
-  color: var(--sec7-text);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100svh;
   overflow: hidden;
   display: grid;
@@ -33,7 +30,7 @@
 
 .contacts__title {
   margin: 0 0 10px;
-  font-family: var(--sec7-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.08em;
   font-size: clamp(36px, 5.6vw, 64px);
@@ -64,7 +61,7 @@
 
 .contacts__name {
   margin: 6px 0 0;
-  font-family: var(--sec7-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.06em;
   font-size: 18px;
@@ -72,11 +69,11 @@
 
 .contacts__phone {
   margin: 0;
-  font-family: var(--sec7-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.04em;
   font-size: 14px;
-  color: var(--sec7-text);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
@@ -160,6 +157,10 @@
   background-image: url("../assets/branches/branch-3.png");
   transform: scaleX(-1) rotate(-132deg);
   opacity: 0.42;
+}
+
+.contacts__torn {
+  background-color: var(--bg-secondary);
 }
 
 .contacts__flower {

@@ -1,18 +1,14 @@
 /* section3.css */
 
 :root {
-  --sec3-bg: #ebe7df; /* ~ фон со скриншота */
-  --sec3-text: #2a2b26;
-  --sec3-accent: #626757; /* ~ тёмно-зелёные края/кнопка */
+  --sec3-accent: #626757;
   --sec3-max: 980px;
-
-  --sec3-serif: var(--base-serif);
 }
 
 .venue {
   position: relative;
-  background: var(--sec3-bg);
-  color: var(--sec3-text);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100svh;
   overflow: hidden;
   display: grid;
@@ -32,7 +28,7 @@
 /* Title + address */
 .venue__title {
   margin: 0;
-  font-family: var(--sec3-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.08em;
   font-size: clamp(34px, 5.2vw, 64px);
@@ -103,26 +99,12 @@
 
 /* Torn edges (top/bottom) */
 .venue__torn {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 26px;
-  pointer-events: none;
-  background-repeat: repeat-x;
-  background-size: 1200px 26px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='26' viewBox='0 0 1200 26'%3E%3Cpath fill='%2339412f' d='M0 0h1200v10c-90 10-160-6-240 6-70 10-150-8-240 4-80 10-150-6-240 6-90 12-150-8-240 4C70 24 35 18 0 2V0z'/%3E%3C/svg%3E");
-}
-
-.venue__torn--top {
-  top: 0;
-}
-.venue__torn--bottom {
-  bottom: 0;
-  transform: rotate(180deg);
+  background-color: var(--bg-secondary);
 }
 
 /* Flower decor at top center */
 .venue__flower {
+  z-index: 6;
   position: absolute;
   top: -80px;
   left: 50%;
@@ -133,7 +115,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.95;
-  background-image: url(../assets/flowers/flower-4.png);
+  background-image: url("../assets/flowers/flower-4.png");
 }
 
 /* Responsive */

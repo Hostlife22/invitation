@@ -1,6 +1,5 @@
-/* Главный CSS файл для приложения приглашения */
+/* Import all CSS files for the wedding invitation site */
 
-/* Импорт всех стилей */
 @import url("./base.css");
 @import url("./hero.css");
 @import url("./invite-date.css");

@@ -1,20 +1,13 @@
 /* section9.css */
 
 :root {
-  --sec9-bg: #39412f; /* как на тёмно‑зелёных секциях */
-  --sec9-text: #f4efe6;
   --sec9-max: 1100px;
-
-  --sec9-serif: var(--base-serif);
-
-  --reveal-dur: var(--reveal-dur);
-  --reveal-ease: var(--reveal-ease);
 }
 
 .finale {
   position: relative;
-  background: var(--sec9-bg);
-  color: var(--sec9-text);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   overflow: hidden;
   min-height: 100svh;
   display: grid;
@@ -35,7 +28,7 @@
 /* Title */
 .finale__title {
   margin: 0;
-  font-family: var(--sec9-serif);
+  font-family: var(--base-serif);
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 0.92;
