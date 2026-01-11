@@ -2,7 +2,7 @@
 
 :root {
   /* По скриншоту секции */
-  --sec6-bg: #363f2c; /* ~ rgb(54,63,44) */
+  --sec6-bg: #39412f; /* ~ rgb(54,63,44) */
   --sec6-text: #f4efe6;
   --sec6-muted: rgba(244, 239, 230, 0.82);
   --sec6-paper: #f8f3ec;
@@ -158,11 +158,11 @@
   pointer-events: none;
   background-repeat: repeat-x;
   background-size: 1200px 26px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='26' viewBox='0 0 1200 26'%3E%3Cpath fill='%23f8f3ec' d='M0 0h1200v10c-90 10-160-6-240 6-70 10-150-8-240 4-80 10-150-6-240 6-90 12-150-8-240 4C70 24 35 18 0 22V0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='26' viewBox='0 0 1200 26'%3E%3Cpath fill='%23f5f1eb' d='M0 0h1200v10c-90 10-160-6-240 6-70 10-150-8-240 4-80 10-150-6-240 6-90 12-150-8-240 4C70 24 35 18 0 22V0z'/%3E%3C/svg%3E");
 }
 
 .wishes__torn--bottom {
-  bottom: 0;
+  bottom: -1px;
   transform: rotate(180deg);
 }
 
