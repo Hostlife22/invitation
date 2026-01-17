@@ -6,7 +6,8 @@
 /* Основные шрифты */
 @font-face {
   font-family: "InviteSerif";
-  src: url("../fonts/InviteSerif.woff2") format("woff2"),
+  src:
+    url("../fonts/InviteSerif.woff2") format("woff2"),
     url("../fonts/InviteSerif.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -15,7 +16,8 @@
 
 @font-face {
   font-family: "InviteScript";
-  src: url("../fonts/InviteScript.woff2") format("woff2"),
+  src:
+    url("../fonts/InviteScript.woff2") format("woff2"),
     url("../fonts/InviteScript.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -24,8 +26,9 @@
 
 :root {
   /* Фолбэки на случай отсутствия оригинального шрифта */
-  --base-serif: "Playfair Display", "InviteSerif", "Cormorant Garamond",
-    "Times New Roman", serif;
+  --base-serif:
+    "Playfair Display", "InviteSerif", "Cormorant Garamond", "Times New Roman",
+    serif;
   --base-script: "InviteScript", "Great Vibes", "Brush Script MT", cursive;
 
   /* Общие параметры анимации */
@@ -49,7 +52,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
 }
 
 .section-torn-edge {
@@ -68,7 +77,28 @@ body {
   mask-size: auto 100%;
 }
 
+.section-torn-edge-mirror {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: clamp(28px, 20vw, 300px);
+  pointer-events: none;
+  z-index: 5;
+  background-color: inherit;
+  -webkit-mask-image: url("../assets/brush-mirror.png");
+  mask-image: url("../assets/brush-mirror.png");
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: auto 100%;
+  mask-size: auto 100%;
+}
+
 .section-torn-edge--top {
   top: -1px;
+  transform: rotate(180deg);
+}
+
+.section-torn-edge--bottom {
+  bottom: -1px;
   transform: rotate(180deg);
 }

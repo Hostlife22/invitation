@@ -75,8 +75,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.22));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='280' viewBox='0 0 760 280'%3E%3Cpath d='M20 180 C170 120, 260 210, 380 170 C500 130, 590 190, 740 120' fill='none' stroke='%23d9d2c4' stroke-width='2' opacity='0.55'/%3E%3Cg%3E%3Ccircle cx='110' cy='164' r='6' fill='%23ffe8a6'/%3E%3Ccircle cx='210' cy='186' r='5' fill='%23fff1c6'/%3E%3Ccircle cx='330' cy='176' r='6' fill='%23ffe8a6'/%3E%3Ccircle cx='460' cy='166' r='5' fill='%23fff1c6'/%3E%3Ccircle cx='580' cy='170' r='6' fill='%23ffe8a6'/%3E%3Ccircle cx='700' cy='122' r='5' fill='%23fff1c6'/%3E%3C/g%3E%3C/svg%3E");
-  animation: sec9Twinkle 2.8s ease-in-out infinite;
+  background-image: url("../assets/light/light.png");
+  animation: garlandFlicker 3.5s ease-in-out infinite;
 }
 
 /* Reveal state controlled by JS */
@@ -84,7 +84,8 @@
 .finale.is-revealed .finale__photo {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity var(--reveal-dur) var(--reveal-ease),
+  transition:
+    opacity var(--reveal-dur) var(--reveal-ease),
     transform var(--reveal-dur) var(--reveal-ease);
 }
 
@@ -95,13 +96,27 @@
   transition-delay: 160ms;
 }
 
-@keyframes sec9Twinkle {
+/* Footer text */
+.finale__top {
+  margin: 18px 0;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(244, 239, 230, 0.55);
+}
+
+@keyframes garlandFlicker {
   0%,
   100% {
-    opacity: 0.78;
+    opacity: 0.85;
+  }
+  25% {
+    opacity: 0.95;
   }
   50% {
-    opacity: 0.98;
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.9;
   }
 }
 
@@ -118,6 +133,7 @@
 @media (prefers-reduced-motion: reduce) {
   .finale__garland {
     animation: none;
+    opacity: 0.9;
   }
   .finale__title,
   .finale__photo,

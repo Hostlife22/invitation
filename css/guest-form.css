@@ -38,7 +38,13 @@
 
 .guest-form__intro {
   margin: 4px 0 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   line-height: 1.35;
   color: var(--sec8-muted);
@@ -191,14 +197,6 @@
   font-size: 12px;
 }
 
-/* Footer text */
-.guest-form__footer {
-  margin: 18px 0 0;
-  text-align: center;
-  font-size: 12px;
-  color: rgba(244, 239, 230, 0.55);
-}
-
 /* Torn top edge */
 .guest-form__torn {
   background-color: var(--bg-primary);
@@ -207,16 +205,33 @@
 /* Garland + flower */
 .guest-form__garland {
   position: absolute;
-  top: -28px;
-  right: -70px;
-  width: 640px;
-  height: 220px;
+  top: -14px;
+  right: 0px;
+  width: 780px;
+  height: 285px;
   pointer-events: none;
   opacity: 0.95;
   background-repeat: no-repeat;
   background-size: contain;
   filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.25));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='240' viewBox='0 0 640 240'%3E%3Cpath d='M10 70 C160 35, 250 105, 360 78 C470 52, 540 82, 630 40' fill='none' stroke='%23d9d2c4' stroke-width='2' opacity='0.6'/%3E%3Cg%3E%3Ccircle cx='95' cy='60' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='180' cy='82' r='4' fill='%23fff1c6'/%3E%3Ccircle cx='280' cy='76' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='380' cy='70' r='4' fill='%23fff1c6'/%3E%3Ccircle cx='490' cy='66' r='5' fill='%23ffe8a6'/%3E%3Ccircle cx='600' cy='44' r='4' fill='%23fff1c6'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("../assets/light/light.png");
+  animation: garlandFlicker 3.5s ease-in-out infinite;
+}
+
+@keyframes garlandFlicker {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.9;
+  }
 }
 
 .guest-form__flower {
@@ -245,5 +260,13 @@
   }
   .check__text {
     font-size: 15px;
+  }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .guest-form__garland {
+    animation: none;
+    opacity: 0.95;
   }
 }

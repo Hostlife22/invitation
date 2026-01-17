@@ -9,7 +9,7 @@
   position: relative;
   background: var(--bg-primary);
   color: var(--text-primary);
-  min-height: 100svh;
+  min-height: 75svh;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -37,7 +37,13 @@
 
 .venue__address {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 12px;
   letter-spacing: 0.02em;
   color: rgba(42, 43, 38, 0.7);
@@ -78,7 +84,13 @@
   border-radius: 0; /* как в макете: прямоугольная */
   background: var(--sec3-accent);
   color: #fff;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 12px;
   letter-spacing: 0.06em;
   cursor: pointer;
@@ -100,22 +112,6 @@
 /* Torn edges (top/bottom) */
 .venue__torn {
   background-color: var(--bg-secondary);
-}
-
-/* Flower decor at top center */
-.venue__flower {
-  z-index: 6;
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: rotate(-75deg) translateX(-50%);
-  width: 120px;
-  height: 160px;
-  pointer-events: none;
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.95;
-  background-image: url("../assets/flowers/flower-4.png");
 }
 
 /* Responsive */

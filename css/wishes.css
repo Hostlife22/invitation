@@ -11,7 +11,7 @@
   background: var(--bg-secondary);
   color: var(--text-secondary);
   overflow: hidden;
-  min-height: 52svh;
+  min-height: 60svh;
   display: grid;
   place-items: center;
   padding: clamp(50px, 7vw, 86px) 16px clamp(40px, 7vw, 80px);
@@ -52,7 +52,13 @@
   margin: 0;
   max-width: 420px;
   color: var(--sec6-muted);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 12px;
   line-height: 1.35;
   text-align: center;
