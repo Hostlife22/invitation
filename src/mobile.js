@@ -1,5 +1,7 @@
 // mobile.js - Функционал для мобильной версии
 
+import { sendToTelegram } from './telegram.js';
+
 /**
  * Проверяет, является ли устройство мобильным (по ширине экрана)
  * @returns {boolean}
@@ -147,22 +149,28 @@ function setupModalFormSubmit() {
 
   if (!modalForm) return;
 
-  modalForm.addEventListener('submit', (e) => {
+  modalForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Валидация
     const name = modalForm.querySelector('input[name="name"]');
     const attendance = modalForm.querySelector('input[name="modal-attendance"]:checked');
+    const status = document.getElementById('modal-rsvp-status');
+    const submitBtn = modalForm.querySelector('button[type="submit"]');
+
+    // Очищаем предыдущие ошибки
+    const errName = document.getElementById('modal-err-name');
+    const errAttendance = document.getElementById('modal-err-attendance');
+    if (errName) errName.textContent = '';
+    if (errAttendance) errAttendance.textContent = '';
 
     if (!name || !name.value.trim()) {
-      const errName = document.getElementById('modal-err-name');
       if (errName) errName.textContent = 'Пожалуйста, введите ваше имя';
       name?.focus();
       return;
     }
 
     if (!attendance) {
-      const errAttendance = document.getElementById('modal-err-attendance');
       if (errAttendance) errAttendance.textContent = 'Пожалуйста, выберите вариант';
       return;
     }
@@ -178,6 +186,13 @@ function setupModalFormSubmit() {
     prefs.forEach((pref) => {
       formData.prefs.push(pref.value);
     });
+
+    // Блокируем кнопку на время отправки
+    if (submitBtn) submitBtn.disabled = true;
+    if (status) status.textContent = 'Отправка...';
+
+    // Отправляем в Telegram
+    const telegramResult = await sendToTelegram(formData);
 
     // Сохраняем в localStorage
     localStorage.setItem('rsvp', JSON.stringify(formData));
@@ -196,11 +211,17 @@ function setupModalFormSubmit() {
       });
     }
 
-    // Показываем статус успеха
-    const status = document.getElementById('modal-rsvp-status');
+    // Показываем статус
     if (status) {
-      status.textContent = 'Спасибо! Ваш ответ сохранён.';
+      if (telegramResult.success) {
+        status.textContent = 'Спасибо! Ваш ответ отправлен.';
+      } else {
+        status.textContent = 'Ответ сохранён. Проверьте соединение.';
+        console.warn('Telegram error:', telegramResult.error);
+      }
     }
+
+    if (submitBtn) submitBtn.disabled = false;
 
     // Закрываем модал через 1.5 секунды
     setTimeout(() => {

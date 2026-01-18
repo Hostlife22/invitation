@@ -1,5 +1,7 @@
-// section8.js
+// guest-form.js - Секция анкеты гостя
 /* eslint-env browser */
+
+import { sendToTelegram } from './telegram.js';
 
 function readFormData(formEl) {
   const fd = new FormData(formEl);
@@ -76,7 +78,7 @@ export function setupGuestForm(sectionEl, { storageKey = "rsvp" } = {}) {
     syncPrefsByAttendance();
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setStatus("");
 
@@ -97,8 +99,25 @@ export function setupGuestForm(sectionEl, { storageKey = "rsvp" } = {}) {
       submittedAt: new Date().toISOString(),
     };
 
-    saveToLocalStorage(storageKey, payload);
-    setStatus("Спасибо! Ответ сохранён.");
+    // Блокируем кнопку на время отправки
+    const submitBtn = formEl.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    setStatus("Отправка...");
+
+    // Отправляем в Telegram
+    const telegramResult = await sendToTelegram(payload);
+
+    if (telegramResult.success) {
+      saveToLocalStorage(storageKey, payload);
+      setStatus("Спасибо! Ваш ответ отправлен.");
+    } else {
+      // Сохраняем локально даже при ошибке Telegram
+      saveToLocalStorage(storageKey, payload);
+      setStatus("Ответ сохранён. Проверьте соединение.");
+      console.warn("Telegram error:", telegramResult.error);
+    }
+
+    if (submitBtn) submitBtn.disabled = false;
   };
 
   formEl.addEventListener("change", onChange);
