@@ -204,6 +204,14 @@
     display: block;
   }
 
+  .timeline__garland--top {
+    width: 100%;
+    height: 240px;
+    top: 180px;
+    right: -5px;
+    transform: rotate(0deg);
+  }
+
   .timeline__grid {
     grid-template-columns: 1fr;
   }

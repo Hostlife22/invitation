@@ -222,18 +222,18 @@
 
 @media (max-width: 480px) {
   .contacts__leaf--topRight {
-    width: 130px;
-    height: 182px;
-    right: 5px;
-    top: 10px;
-    transform: rotate(15deg);
+    width: clamp(155px, 30vw, 200px);
+    height: clamp(220px, 42vw, 280px);
+    right: clamp(-30px, -5vw, 21px);
+    top: clamp(-177px, -10vh, 20px);
+    transform: scaleX(-1) rotate(63deg);
   }
 
   .contacts__leaf--bottomLeft {
-    width: 110px;
-    height: 154px;
-    left: 5px;
-    bottom: 25px;
-    transform: rotate(-12deg);
+    width: clamp(160px, 28vw, 180px);
+    height: clamp(210px, 39vw, 250px);
+    left: clamp(-10px, -2vw, 20px);
+    bottom: clamp(-111px, -12vh, 60px);
+    transform: scaleX(-1) rotate(-119deg);
   }
 }

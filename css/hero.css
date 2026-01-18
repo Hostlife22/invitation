@@ -130,36 +130,30 @@
 
 @media (max-width: 768px) {
   .hero__decor--top-left {
-    /* width: clamp(180px, 24vw, 280px); */
-    /* height: clamp(240px, 32vw, 350px); */
-    /* right: clamp(-229px, -17vw, -15px); */
-    /* top: clamp(-155px, -16vh, -10px); */
-    /* transform: rotate(24deg); */
+    top: clamp(-180px, -22vh, -10px);
+    left: clamp(-228px, -26vw, -15px);
+    width: clamp(190px, 24vw, 280px);
+    height: clamp(250px, 32vw, 350px);
   }
 
   .hero__decor--mid-right {
-    /* width: 150px; */
-    /* height: 200px; */
-    /* top: clamp(-150px, -12vh, -10px); */
-    /* right: clamp(-141px, -11vw, -30px); */
-    /* transform: scaleX(-1) rotate(57deg); */
+    top: clamp(-155px, -10vh, -10px);
+    right: clamp(-141px, -20vw, -30px);
   }
 }
 
 @media (max-width: 480px) {
-  /* .hero__decor--top-left {
-    width: 118px;
-    height: 185px;
-    left: -76px;
-    top: -110px;
+  .hero__decor--top-left {
+    top: clamp(-180px, -22vh, -10px);
+    left: clamp(-229px, -25vw, -15px);
+    width: clamp(190px, 24vw, 280px);
+    height: clamp(225px, 32vw, 350px);
   }
 
   .hero__decor--mid-right {
-    width: 150px;
-    height: 200px;
-    right: -85px;
-    top: -90px;
-  } */
+    top: clamp(-155px, -10vh, -10px);
+    right: clamp(-141px, -20vw, -30px);
+  }
 }
 
 /* Reveal state: управляется JS */

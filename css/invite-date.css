@@ -299,29 +299,33 @@
     display: none;
   }
   .invite-date__garland--top {
-    width: 500px;
-    height: 250px;
-    transform: rotate(-12deg);
+    width: 100%;
+    height: 300px;
+    transform: rotate(-24deg);
+    top: clamp(140px, 53vw, 250px);
+    right: -37px;
   }
   .invite-date__garland--bottom {
-    width: 400px;
-    height: 220px;
-    transform: rotate(10deg);
+    width: 100%;
+    height: 280px;
+    transform: rotate(1deg);
+    left: 0;
+    bottom: 140px;
   }
   .invite-date__leaf--left {
-    width: 110px;
-    height: 155px;
-    left: -5px;
-    top: 18%;
-    transform: rotate(-15deg);
+    width: clamp(130px, 28vw, 180px);
+    height: clamp(180px, 38vw, 250px);
+    left: clamp(-15px, -5vw, 6px);
+    top: clamp(10px, 33vh, 10px);
+    transform: rotate(35deg);
   }
 
   .invite-date__leaf--right {
-    width: 120px;
-    height: 168px;
-    right: 0;
-    bottom: 8%;
-    transform: rotate(20deg);
+    width: clamp(140px, 30vw, 190px);
+    height: clamp(195px, 40vw, 265px);
+    right: clamp(-20px, 15vw, -20px);
+    bottom: clamp(1px, 44vh, 375px);
+    transform: scaleX(-1) rotate(30deg);
   }
 }
 
