@@ -1,0 +1,614 @@
+/* mobile.css - Адаптация для мобильных устройств */
+
+/* ===========================================
+   STICKY CTA BUTTON (внизу экрана)
+   =========================================== */
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 8px;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, var(--bg-secondary) 70%, transparent);
+  }
+
+  .sticky-cta__btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family:
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Arial,
+      sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .sticky-cta__btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ===========================================
+   FORM MODAL (мобильная версия формы)
+   =========================================== */
+.form-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.form-modal.is-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.form-modal__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  background: var(--bg-primary);
+  overflow-y: auto;
+  padding: 60px 24px 40px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.form-modal__close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: var(--text-primary);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-modal__title {
+  margin: 0 0 20px;
+  font-family: var(--base-serif);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-size: clamp(28px, 7vw, 36px);
+  line-height: 1;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.form-modal__intro {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(42, 43, 38, 0.7);
+  text-align: center;
+}
+
+.form-modal__deadline {
+  margin: 16px 0 24px;
+  font-family: var(--base-serif);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: clamp(22px, 5.5vw, 28px);
+  line-height: 1.1;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Form modal specific styles */
+.form--modal {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form__label--modal {
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.form__input--modal {
+  border-color: rgba(42, 43, 38, 0.25);
+  color: var(--text-primary);
+  background: #fff;
+}
+
+.form__input--modal::placeholder {
+  color: rgba(42, 43, 38, 0.4);
+}
+
+.form__input--modal:focus {
+  border-color: rgba(42, 43, 38, 0.5);
+}
+
+.check--modal {
+  color: var(--text-primary);
+}
+
+.check__box--modal {
+  border-color: rgba(42, 43, 38, 0.4);
+}
+
+.check--modal .check__input:checked + .check__box--modal::after {
+  background: rgba(42, 43, 38, 0.7);
+}
+
+.form__submit--modal {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: none;
+}
+
+/* ===========================================
+   HERO SECTION - Mobile scroll indicator
+   =========================================== */
+.hero__scrollBtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero__scrollBtn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-family:
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Arial,
+      sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .hero__scrollBtn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ===========================================
+   INVITE-DATE SECTION - Vertical date on mobile
+   =========================================== */
+@media (max-width: 768px) {
+  .invite-date__inner {
+    gap: 20px;
+  }
+
+  .invite-date__title {
+    font-size: clamp(32px, 9vw, 48px);
+    line-height: 1.1;
+  }
+
+  .invite-date__script {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .invite-date__text {
+    font-size: 13px;
+    max-width: 320px;
+    padding: 0 10px;
+  }
+
+  /* Vertical date display */
+  .invite-date__bigDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    font-size: clamp(48px, 14vw, 72px);
+    margin: 30px 0 20px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  .invite-date__bigDate-part {
+    display: block;
+  }
+
+  .invite-date__bigDate-sep {
+    display: none;
+  }
+}
+
+/* ===========================================
+   VENUE SECTION - Calendar integration on mobile
+   =========================================== */
+@media (max-width: 768px) {
+  .venue {
+    min-height: auto;
+  }
+
+  .venue__inner {
+    gap: 12px;
+  }
+
+  .venue__title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .venue__address {
+    font-size: 11px;
+  }
+
+  .venue__pin {
+    width: 32px;
+    height: 32px;
+    margin: 6px 0 4px;
+  }
+
+  .venue__photoWrap {
+    width: min(320px, 85vw);
+  }
+
+  .venue__cta {
+    min-width: 180px;
+    padding: 14px 20px;
+    font-size: 11px;
+  }
+}
+
+/* ===========================================
+   TIMELINE SECTION - Vertical stack on mobile
+   =========================================== */
+@media (max-width: 768px) {
+  .timeline__inner {
+    gap: 20px;
+  }
+
+  .timeline__title {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .timeline__script {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .timeline__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .timeline__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+  }
+
+  .timeline__time {
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1;
+  }
+
+  .timeline__label {
+    font-size: 13px;
+  }
+}
+
+/* ===========================================
+   COUNTDOWN SECTION - Simplified mobile layout
+   =========================================== */
+@media (max-width: 768px) {
+  .countdown__card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .countdown__title {
+    color: var(--text-secondary);
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .countdown__script {
+    color: rgba(244, 239, 230, 0.7);
+    margin: 12px 0 24px;
+  }
+
+  .countdown__row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .countdown__line {
+    display: none;
+  }
+
+  .countdown__metric {
+    min-width: auto;
+  }
+
+  .countdown__value {
+    color: var(--text-secondary);
+    font-size: clamp(24px, 7vw, 36px);
+  }
+
+  .countdown__label {
+    color: rgba(244, 239, 230, 0.6);
+    font-size: 11px;
+  }
+
+  .countdown__status {
+    color: rgba(244, 239, 230, 0.5);
+  }
+}
+
+/* ===========================================
+   WISHES SECTION - Mobile adjustments
+   =========================================== */
+@media (max-width: 768px) {
+  .wishes__title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .wishes__script {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .wishes__text {
+    font-size: 13px;
+    max-width: 320px;
+    line-height: 1.45;
+  }
+}
+
+/* ===========================================
+   CONTACTS SECTION - Mobile adjustments
+   =========================================== */
+@media (max-width: 768px) {
+  .contacts {
+    min-height: auto;
+    padding: clamp(50px, 8vw, 70px) 16px clamp(80px, 12vw, 100px);
+  }
+
+  .contacts__title {
+    font-size: clamp(28px, 8vw, 40px);
+    margin-bottom: 16px;
+  }
+
+  .contacts__photoWrap {
+    width: min(280px, 75vw);
+  }
+
+  .contacts__text {
+    font-size: 13px;
+    max-width: 280px;
+    margin: 16px 0 10px;
+  }
+
+  .contacts__name {
+    font-size: 16px;
+  }
+
+  .contacts__phone {
+    font-size: 13px;
+  }
+
+  .contacts__plane {
+    width: 24px;
+    height: 24px;
+    margin: 10px 0 6px;
+  }
+
+  .contacts__cta {
+    min-width: 160px;
+    padding: 14px 20px;
+    font-size: 11px;
+  }
+}
+
+/* ===========================================
+   GUEST-FORM SECTION - Simplified on mobile
+   =========================================== */
+@media (max-width: 768px) {
+  .guest-form__title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .guest-form__intro {
+    font-size: 13px;
+  }
+
+  .guest-form__deadline {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  /* Hide the full form on mobile, show only simplified version */
+  .guest-form .form {
+    display: none;
+  }
+
+  /* Show simplified button instead */
+  .guest-form__inner::after {
+    content: "";
+    display: block;
+    width: min(240px, 70vw);
+    height: 46px;
+    margin-top: 16px;
+    background: var(--bg-primary);
+    cursor: pointer;
+  }
+}
+
+/* ===========================================
+   FINALE SECTION - Mobile adjustments
+   =========================================== */
+@media (max-width: 768px) {
+  .finale {
+    min-height: auto;
+    padding: clamp(20px, 4vw, 40px) 16px clamp(100px, 15vw, 140px);
+  }
+
+  .finale__flower {
+    display: block;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(140px, 35vw, 200px);
+    height: clamp(140px, 35vw, 200px);
+    z-index: 10;
+  }
+
+  .finale__top {
+    font-size: 13px;
+  }
+
+  .finale__title {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .finale__photoWrap {
+    width: min(340px, 90vw);
+  }
+}
+
+/* ===========================================
+   CALENDAR in INVITE-DATE - Mobile view
+   =========================================== */
+@media (max-width: 768px) {
+  .invite-date__month {
+    font-size: 14px;
+  }
+
+  .calendar {
+    font-size: 10px;
+  }
+
+  .calendar__head th {
+    padding: 0 6px 4px;
+    font-size: 9px;
+  }
+
+  .calendar__body td {
+    width: 22px;
+    height: 18px;
+    padding: 2px 4px;
+  }
+}
+
+/* ===========================================
+   EXTRA SMALL SCREENS (< 380px)
+   =========================================== */
+@media (max-width: 380px) {
+  .sticky-cta__btn {
+    font-size: 11px;
+    height: 44px;
+  }
+
+  .form-modal__content {
+    padding: 50px 16px 30px;
+  }
+
+  .form-modal__title {
+    font-size: 24px;
+  }
+
+  .form__label--modal {
+    font-size: 12px;
+  }
+
+  .check__text {
+    font-size: 14px;
+  }
+
+  .hero__scrollBtn {
+    font-size: 10px;
+    padding: 10px 20px;
+  }
+
+  .invite-date__bigDate {
+    font-size: clamp(40px, 12vw, 56px);
+  }
+
+  .timeline__time {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+}
+
+/* ===========================================
+   LANDSCAPE MOBILE
+   =========================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 30px 16px 40px;
+  }
+
+  .hero__photoWrap {
+    width: min(250px, 40vh);
+  }
+
+  .invite-date,
+  .timeline,
+  .countdown {
+    min-height: auto;
+  }
+
+  .finale {
+    min-height: auto;
+  }
+}
+
+/* ===========================================
+   PREVENT BODY SCROLL WHEN MODAL IS OPEN
+   =========================================== */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ===========================================
+   HIDE GUEST-FORM BUTTON PSEUDO on mobile
+   =========================================== */
+@media (max-width: 768px) {
+  .guest-form__inner::after {
+    display: none;
+  }
+}

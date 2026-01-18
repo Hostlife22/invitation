@@ -162,14 +162,48 @@
 }
 
 /* responsive: stack items */
-@media (max-width: 720px) {
+@media (max-width: 768px) {
+  .timeline {
+    min-height: 90svh;
+    padding: clamp(60px, 10vw, 80px) 16px clamp(80px, 12vw, 100px);
+  }
+
   .timeline__grid {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 2px;
   }
+
+  .timeline__garland--top {
+    width: 100%;
+    height: 240px;
+    top: 155px;
+    right: -5px;
+    transform: rotate(0deg);
+  }
+
+  .timeline__garland--bottom {
+    width: 100%;
+    height: 240px;
+    bottom: -30px;
+    right: -93px;
+    left: initial;
+    transform: scale(-1) rotate(-23deg);
+  }
+
+  .timeline__flower {
+    right: 10px;
+    top: 50%;
+    width: 100px;
+    height: 180px;
+    opacity: 0.8;
+  }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
+  .invite-date__titleLine {
+    display: block;
+  }
+
   .timeline__grid {
     grid-template-columns: 1fr;
   }

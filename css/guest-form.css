@@ -249,7 +249,85 @@
   background-image: url("../assets/flowers/flower-2.png");
 }
 
-@media (max-width: 520px) {
+.guest-form__flower-mobile,
+.guest-form__btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .guest-form {
+    min-height: 65svh;
+    padding: clamp(60px, 10vw, 80px) 16px clamp(40px, 6vw, 60px);
+  }
+
+  .guest-form__inner {
+    gap: 16px;
+    background-color: var(--bg-primary);
+    position: relative;
+    padding: 60px 20px;
+  }
+
+  .guest-form__title {
+    color: var(--bg-secondary);
+  }
+
+  .guest-form__intro {
+    color: var(--bg-secondary);
+  }
+
+  .guest-form__deadline {
+    color: var(--bg-secondary);
+  }
+
+  .guest-form__flower {
+    display: none;
+  }
+
+  .guest-form__flower-mobile {
+    display: block;
+    z-index: 6;
+    position: absolute;
+    bottom: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 130px;
+    pointer-events: none;
+    opacity: 0.95;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../assets/flowers/flower-2.png);
+  }
+
+  .guest-form__garland {
+    width: 100%;
+    height: 250px;
+    right: 0px;
+    top: 30px;
+  }
+
+  .guest-form__btn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-family:
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Arial,
+      sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 480px) {
   .guest-form__garland {
     width: 420px;
     height: 160px;

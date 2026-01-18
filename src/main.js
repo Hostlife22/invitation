@@ -5,6 +5,7 @@ import { initFinaleSection } from './finale.js';
 import { initGuestFormSection } from './guest-form.js';
 import { initHero } from './hero.js';
 import { initInviteDateSection } from './invite-date.js';
+import { initMobile } from './mobile.js';
 import { initTimelineSection } from './timeline.js';
 import { initVenueSection } from './venue.js';
 import { initWishesSection } from './wishes.js';
@@ -20,4 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactsSection();
   initGuestFormSection();
   initFinaleSection();
+
+  // Инициализация мобильного функционала
+  initMobile();
 });

@@ -75,7 +75,9 @@
   object-fit: cover;
 
   /* Тень как в дизайне */
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.08);
 
   /* reveal baseline */
   transform: translateY(18px);
@@ -114,38 +116,50 @@
 }
 
 /* Мобильная адаптация для веточек */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .hero__decor--top-left {
-    width: clamp(130px, 32vw, 180px);
-    height: clamp(175px, 42vw, 240px);
-    left: -10px;
-    top: 15px;
-    transform: rotate(-10deg);
+    transform: rotate(24deg);
+    top: clamp(-160px, -18vh, -10px);
+    left: clamp(-229px, -25vw, -15px);
   }
 
   .hero__decor--mid-right {
-    width: clamp(140px, 34vw, 190px);
-    height: clamp(155px, 38vw, 210px);
-    right: -15px;
-    top: -5px;
-    transform: rotate(18deg);
+    top: clamp(-155px, -11vh, -10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__decor--top-left {
+    /* width: clamp(180px, 24vw, 280px); */
+    /* height: clamp(240px, 32vw, 350px); */
+    /* right: clamp(-229px, -17vw, -15px); */
+    /* top: clamp(-155px, -16vh, -10px); */
+    /* transform: rotate(24deg); */
+  }
+
+  .hero__decor--mid-right {
+    /* width: 150px; */
+    /* height: 200px; */
+    /* top: clamp(-150px, -12vh, -10px); */
+    /* right: clamp(-141px, -11vw, -30px); */
+    /* transform: scaleX(-1) rotate(57deg); */
   }
 }
 
 @media (max-width: 480px) {
-  .hero__decor--top-left {
-    width: 110px;
-    height: 150px;
-    left: -8px;
-    top: 10px;
+  /* .hero__decor--top-left {
+    width: 118px;
+    height: 185px;
+    left: -76px;
+    top: -110px;
   }
 
   .hero__decor--mid-right {
-    width: 120px;
-    height: 135px;
-    right: -12px;
-    top: 0;
-  }
+    width: 150px;
+    height: 200px;
+    right: -85px;
+    top: -90px;
+  } */
 }
 
 /* Reveal state: управляется JS */
@@ -154,7 +168,8 @@
 .hero.is-revealed .hero__photo {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity var(--reveal-dur) var(--reveal-ease),
+  transition:
+    opacity var(--reveal-dur) var(--reveal-ease),
     transform var(--reveal-dur) var(--reveal-ease);
 }
 
@@ -194,7 +209,8 @@
 /* Small mobile adjustments */
 @media (max-width: 480px) {
   .hero {
-    padding: 25px 12px 35px;
+    padding: 12px;
+    min-height: 95svh;
   }
 
   .hero__inner {
@@ -202,7 +218,7 @@
   }
 
   .hero__date {
-    font-size: 11px;
+    font-size: 20px;
   }
 
   .hero__title {

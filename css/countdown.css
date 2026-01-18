@@ -127,7 +127,18 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
+  .countdown {
+    min-height: auto;
+    padding: clamp(50px, 8vw, 70px) 16px clamp(40px, 6vw, 60px);
+  }
+
+  .countdown__inner {
+    background: var(--bg-secondary);
+    border-radius: 5px;
+    padding: clamp(30px, 6vw, 50px) 20px clamp(20px, 6vw, 40px);
+  }
+
   .countdown__row {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;

@@ -50,6 +50,10 @@
 					decoding="async" width="520" height="680" />
 				<div class="hero__decor hero__decor--mid-right" aria-hidden="true"></div>
 			</figure>
+
+			<button class="hero__scrollBtn" type="button" id="hero-scroll-btn" aria-label="Листать вниз">
+				ЛИСТАЙТЕ ВНИЗ ↓
+			</button>
 		</div>
 	</section>
 	<!-- HERO: end -->
@@ -67,17 +71,25 @@
 		<div class="invite-date__leaf invite-date__leaf--right" aria-hidden="true"></div>
 
 		<div class="invite-date__inner">
-			<h2 class="invite-date__title">ДОРОГИЕ ДРУЗЬЯ!</h2>
+			<h2 class="invite-date__title">
+				<span class="invite-date__titleLine">ДОРОГИЕ</span>
+				<span class="invite-date__titleLine">ДРУЗЬЯ!</span>
+			</h2>
 
 			<p class="invite-date__script" aria-label="Слоган">Save the date!</p>
-
 			<p class="invite-date__text">
 				Это официальное приглашение на нашу<br />
 				свадьбу! А получили вы его потому, что мы очень<br />
 				хотим видеть вас в этот день рядом с нами!
 			</p>
 
-			<p class="invite-date__bigDate" aria-label="Дата свадьбы">27 · 06 · 26</p>
+			<p class="invite-date__bigDate" aria-label="Дата свадьбы">
+				<span class="invite-date__bigDate-part">27</span>
+				<span class="invite-date__bigDate-sep" aria-hidden="true">·</span>
+				<span class="invite-date__bigDate-part">06</span>
+				<span class="invite-date__bigDate-sep" aria-hidden="true">·</span>
+				<span class="invite-date__bigDate-part">26</span>
+			</p>
 
 			<div class="invite-date__calendarWrap" aria-label="Календарь">
 				<p class="invite-date__month" id="invite-month">ИЮНЬ</p>
@@ -291,6 +303,10 @@
 
 			<p class="guest-form__deadline" aria-label="Дедлайн ответа">01 МАЯ 2026</p>
 
+			<button class="guest-form__btn" type="button" id="guest-form__btn" aria-label="Подтвердить присутствие">
+				ПОДТВЕРДИТЬ
+			</button>
+
 			<form class="form" id="rsvp-form" novalidate>
 				<!-- Name -->
 				<div class="form__block">
@@ -366,6 +382,7 @@
 
 				<p class="form__status" id="rsvp-status" role="status" aria-live="polite"></p>
 			</form>
+			<div class="guest-form__flower-mobile" aria-hidden="true"></div>
 
 		</div>
 	</section>
@@ -393,6 +410,104 @@
 		</div>
 	</section>
 	<!-- Section #9: end -->
+
+	<!-- Sticky CTA для мобильной версии -->
+	<div class="sticky-cta" id="sticky-cta">
+		<button class="sticky-cta__btn" type="button" id="sticky-cta-btn">
+			ПОДТВЕРДИТЬ ПРИСУТСТВИЕ
+		</button>
+	</div>
+
+	<!-- Modal для формы (мобильная версия) -->
+	<div class="form-modal" id="form-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+		<div class="form-modal__overlay" id="modal-overlay"></div>
+		<div class="form-modal__content">
+			<button class="form-modal__close" type="button" id="modal-close" aria-label="Закрыть">×</button>
+
+			<h2 class="form-modal__title" id="modal-title">АНКЕТА ГОСТЯ</h2>
+
+			<p class="form-modal__intro">
+				Пожалуйста, подтвердите ваше<br />
+				присутствие на нашей свадьбе до
+			</p>
+
+			<p class="form-modal__deadline">01 МАЯ 2026</p>
+
+			<form class="form form--modal" id="rsvp-form-modal" novalidate>
+				<!-- Name -->
+				<div class="form__block">
+					<label class="form__label form__label--modal" for="modal-guest-name">ВАШЕ ИМЯ И ФАМИЛИЯ</label>
+					<input class="form__input form__input--modal" id="modal-guest-name" name="name" type="text"
+						inputmode="text" autocomplete="name" placeholder="Имя и Фамилия" required />
+					<p class="form__error" id="modal-err-name" role="status" aria-live="polite"></p>
+				</div>
+
+				<!-- Attendance (single-choice) -->
+				<fieldset class="form__block" aria-describedby="modal-err-attendance">
+					<legend class="form__label form__label--modal">ПЛАНИРУЕТЕ ЛИ ВЫ ПРИСУТСТВОВАТЬ?</legend>
+
+					<label class="check check--modal">
+						<input class="check__input" type="radio" name="modal-attendance" value="yes" required />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">С удовольствием приду!</span>
+					</label>
+
+					<label class="check check--modal">
+						<input class="check__input" type="radio" name="modal-attendance" value="no" required />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">К сожалению, не смогу</span>
+					</label>
+
+					<p class="form__error" id="modal-err-attendance" role="status" aria-live="polite"></p>
+				</fieldset>
+
+				<!-- Preferences (multi-choice) -->
+				<fieldset class="form__block" id="modal-prefs-fieldset">
+					<legend class="form__label form__label--modal">ВАШИ ПРЕДПОЧТЕНИЯ</legend>
+
+					<label class="check check--modal">
+						<input class="check__input" type="checkbox" name="modal-prefs" value="Шампанское" />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">Шампанское</span>
+					</label>
+
+					<label class="check check--modal">
+						<input class="check__input" type="checkbox" name="modal-prefs" value="Белое вино" />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">Белое вино</span>
+					</label>
+
+					<label class="check check--modal">
+						<input class="check__input" type="checkbox" name="modal-prefs" value="Красное вино" />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">Красное вино</span>
+					</label>
+
+					<label class="check check--modal">
+						<input class="check__input" type="checkbox" name="modal-prefs" value="Виски" />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">Виски</span>
+					</label>
+
+					<label class="check check--modal">
+						<input class="check__input" type="checkbox" name="modal-prefs" value="Водка" />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">Водка</span>
+					</label>
+
+					<label class="check check--modal">
+						<input class="check__input" type="checkbox" name="modal-prefs" value="Не пью алкоголь" />
+						<span class="check__box check__box--modal" aria-hidden="true"></span>
+						<span class="check__text">Не пью алкоголь</span>
+					</label>
+				</fieldset>
+
+				<button class="form__submit form__submit--modal" type="submit">ПОДТВЕРДИТЬ</button>
+
+				<p class="form__status" id="modal-rsvp-status" role="status" aria-live="polite"></p>
+			</form>
+		</div>
+	</div>
 
 	<script type="module" src="src/main.js"></script>
 </body>

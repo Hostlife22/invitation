@@ -64,7 +64,13 @@
   text-align: center;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 768px) {
+  .wishes {
+    min-height: 50svh;
+    padding: clamp(50px, 8vw, 70px) 16px clamp(60px, 10vw, 80px);
+  }
+}
+@media (max-width: 480px) {
   .wishes__text {
     font-size: 11px;
   }
