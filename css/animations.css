@@ -1,0 +1,144 @@
+/* animations.css - Стили для scroll-анимаций появления элементов */
+
+/* ========================================
+   Базовые состояния для элементов с анимацией
+   ======================================== */
+
+/* Базовый класс - элементы скрыты до появления в viewport */
+.animate-on-scroll {
+  opacity: 0;
+  transition:
+    opacity var(--reveal-dur, 520ms) var(--reveal-ease, ease-out),
+    transform var(--reveal-dur, 520ms) var(--reveal-ease, ease-out);
+}
+
+/* Видимое состояние - применяется при попадании в viewport */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========================================
+   Типы анимаций
+   ======================================== */
+
+/* Появление снизу вверх */
+.animate--fade-up {
+  transform: translateY(40px);
+}
+
+/* Появление сверху вниз */
+.animate--fade-down {
+  transform: translateY(-40px);
+}
+
+/* Появление слева */
+.animate--fade-left {
+  transform: translateX(-40px);
+}
+
+/* Появление справа */
+.animate--fade-right {
+  transform: translateX(40px);
+}
+
+/* Просто плавное появление (без движения) */
+.animate--fade-in {
+  transform: none;
+}
+
+/* Масштабирование */
+.animate--scale {
+  transform: scale(0.9);
+}
+
+/* Масштабирование снизу */
+.animate--scale-up {
+  transform: scale(0.9) translateY(20px);
+}
+
+/* ========================================
+   Задержки для каскадных анимаций
+   ======================================== */
+
+.animate--delay-1 {
+  transition-delay: 100ms;
+}
+
+.animate--delay-2 {
+  transition-delay: 200ms;
+}
+
+.animate--delay-3 {
+  transition-delay: 300ms;
+}
+
+.animate--delay-4 {
+  transition-delay: 400ms;
+}
+
+.animate--delay-5 {
+  transition-delay: 500ms;
+}
+
+.animate--delay-6 {
+  transition-delay: 600ms;
+}
+
+/* ========================================
+   Длительность анимаций
+   ======================================== */
+
+.animate--fast {
+  transition-duration: 320ms;
+}
+
+.animate--slow {
+  transition-duration: 720ms;
+}
+
+.animate--slower {
+  transition-duration: 1000ms;
+}
+
+/* ========================================
+   Специальные анимации для групп элементов
+   Элементы внутри группы анимируются последовательно
+   ======================================== */
+
+.animate-group > .animate-on-scroll:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.animate-group > .animate-on-scroll:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.animate-group > .animate-on-scroll:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+.animate-group > .animate-on-scroll:nth-child(4) {
+  transition-delay: 300ms;
+}
+
+.animate-group > .animate-on-scroll:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+.animate-group > .animate-on-scroll:nth-child(6) {
+  transition-delay: 500ms;
+}
+
+/* ========================================
+   Отключение анимаций для пользователей
+   с настройкой prefers-reduced-motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

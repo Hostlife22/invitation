@@ -115,6 +115,12 @@
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+  .venue {
+    top: -1px;
+  }
+}
+
 @media (max-width: 480px) {
   .venue__pin {
     margin-top: 6px;

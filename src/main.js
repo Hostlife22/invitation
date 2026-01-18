@@ -6,6 +6,7 @@ import { initGuestFormSection } from './guest-form.js';
 import { initHero } from './hero.js';
 import { initInviteDateSection } from './invite-date.js';
 import { initMobile } from './mobile.js';
+import { initScrollAnimations } from './scroll-animations.js';
 import { initTimelineSection } from './timeline.js';
 import { initVenueSection } from './venue.js';
 import { initWishesSection } from './wishes.js';
@@ -24,4 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Инициализация мобильного функционала
   initMobile();
+
+  // Инициализация scroll-анимаций (после всех секций)
+  initScrollAnimations();
 });
