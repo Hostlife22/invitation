@@ -35,6 +35,15 @@
   --reveal-dur: 520ms;
   --reveal-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
 
+  /* Тайминги анимаций */
+  --duration-fast: 200ms;
+  --duration-base: 320ms;
+  --duration-slow: 520ms;
+  --duration-slower: 720ms;
+  --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
   /* Цвета фона секций */
   --bg-primary: #f5f1eb;
   --bg-secondary: #39412f;
@@ -42,6 +51,29 @@
   /* Цвета текста */
   --text-primary: #2d2f29;
   --text-secondary: #f4efe6;
+
+  /* Акцентные цвета */
+  --accent-success: #5a7247;
+  --accent-error: #a65d5d;
+
+  /* Тени */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-glow: 0 0 20px rgba(244, 239, 230, 0.3);
+
+  /* Z-index шкала */
+  --z-below: -1;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-modal-overlay: 1000;
+  --z-modal: 2000;
+
+  /* Прозрачность */
+  --opacity-subtle: 0.45;
+  --opacity-medium: 0.7;
+  --opacity-strong: 0.9;
 }
 
 /* Общие стили сброса */
@@ -60,6 +92,46 @@ body {
     Arial,
     sans-serif;
   background: var(--bg-primary);
+}
+
+/* ===========================================
+   CUSTOM SCROLLBAR
+   =========================================== */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c4b8a5 transparent;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b8a5;
+  border-radius: 100px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a89880;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Скроллбар для всех элементов */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c4b8a5 transparent;
 }
 
 .section-torn-edge {
@@ -102,4 +174,59 @@ body {
 .section-torn-edge--bottom {
   bottom: -1px;
   transform: rotate(180deg);
+}
+
+/* ===========================================
+   IMAGE LOADING STATES
+   =========================================== */
+
+/* Placeholder background для обёрток изображений */
+.hero__photoWrap,
+.venue__photoWrap,
+.contacts__photoWrap,
+.finale__photoWrap {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.06) 50%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+  overflow: hidden;
+}
+
+/* Изображения появляются плавно после загрузки */
+.hero__photo,
+.venue__photo,
+.contacts__photo,
+.finale__photo {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.hero__photo.loaded,
+.venue__photo.loaded,
+.contacts__photo.loaded,
+.finale__photo.loaded {
+  opacity: 1;
+}
+
+/* Shimmer animation для загрузки */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.img-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.03) 25%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }

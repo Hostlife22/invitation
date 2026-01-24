@@ -4,6 +4,7 @@ import { initCountdownSection } from './countdown.js';
 import { initFinaleSection } from './finale.js';
 import { initGuestFormSection } from './guest-form.js';
 import { initHero } from './hero.js';
+import { initImageLoader } from './image-loader.js';
 import { initInviteDateSection } from './invite-date.js';
 import { initMobile } from './mobile.js';
 import { initScrollAnimations } from './scroll-animations.js';
@@ -28,4 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Инициализация scroll-анимаций (после всех секций)
   initScrollAnimations();
+
+
+  // Плавная загрузка изображений
+  initImageLoader();
 });

@@ -12,6 +12,19 @@ function parseTargetMs(sectionEl) {
   return ms;
 }
 
+// Добавляет pulse-анимацию при изменении значения
+function updateWithPulse(el, newValue) {
+  if (!el) return;
+  const oldValue = el.textContent;
+  if (oldValue !== newValue) {
+    el.textContent = newValue;
+    el.classList.remove('pulse');
+    // Перезапуск анимации через reflow
+    void el.offsetWidth;
+    el.classList.add('pulse');
+  }
+}
+
 function renderCountdown(sectionEl, parts) {
   const d = sectionEl.querySelector("#cd-days");
   const h = sectionEl.querySelector("#cd-hours");
@@ -19,10 +32,10 @@ function renderCountdown(sectionEl, parts) {
   const s = sectionEl.querySelector("#cd-secs");
   const status = sectionEl.querySelector("#cd-status");
 
-  if (d) d.textContent = String(parts.days);
-  if (h) h.textContent = pad2(parts.hours);
-  if (m) m.textContent = pad2(parts.mins);
-  if (s) s.textContent = pad2(parts.secs);
+  updateWithPulse(d, String(parts.days));
+  updateWithPulse(h, pad2(parts.hours));
+  updateWithPulse(m, pad2(parts.mins));
+  updateWithPulse(s, pad2(parts.secs));
 
   if (status) {
     status.textContent = parts.diffMs === 0 ? "Событие уже началось" : "";

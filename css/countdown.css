@@ -81,6 +81,26 @@
   letter-spacing: 0.04em;
   font-size: clamp(26px, 3.4vw, 44px);
   color: var(--text-primary);
+  transition: transform 0.15s var(--ease-bounce);
+}
+
+.countdown__value.pulse {
+  animation: countdownPulse 0.4s var(--ease-out);
+}
+
+@keyframes countdownPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .countdown__label {

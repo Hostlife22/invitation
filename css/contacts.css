@@ -115,13 +115,19 @@
   font-size: 12px;
   letter-spacing: 0.06em;
   cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .contacts__cta:hover {
-  filter: brightness(1.05);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-md);
 }
+
 .contacts__cta:active {
-  transform: translateY(1px);
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow-sm);
 }
 
 .contacts__cta:focus-visible {

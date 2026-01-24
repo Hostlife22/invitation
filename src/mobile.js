@@ -1,5 +1,6 @@
 // mobile.js - Функционал для мобильной версии
 
+import { launchConfetti } from './confetti.js';
 import { sendToTelegram } from './telegram.js';
 
 /**
@@ -211,10 +212,12 @@ function setupModalFormSubmit() {
       });
     }
 
-    // Показываем статус
+    // Показываем статус и запускаем конфетти при успехе
     if (status) {
       if (telegramResult.success) {
         status.textContent = 'Спасибо! Ваш ответ отправлен.';
+        // Запускаем конфетти при успешной отправке
+        launchConfetti();
       } else {
         status.textContent = 'Ответ сохранён. Проверьте соединение.';
         console.warn('Telegram error:', telegramResult.error);

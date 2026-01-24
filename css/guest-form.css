@@ -178,10 +178,16 @@
   letter-spacing: 0.08em;
   font-size: 12px;
   cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
 }
 
 .form__submit:hover {
-  filter: brightness(1.02);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--shadow-md);
+  background: #fff;
 }
 
 .form__submit:focus-visible {
@@ -324,6 +330,18 @@
     letter-spacing: 0.08em;
     cursor: pointer;
     border-radius: 2px;
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-base) var(--ease-out);
+  }
+
+  .guest-form__btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+
+  .guest-form__btn:active {
+    transform: translateY(0) scale(0.98);
   }
 }
 

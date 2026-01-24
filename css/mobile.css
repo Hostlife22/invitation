@@ -36,10 +36,11 @@
     letter-spacing: 0.08em;
     font-weight: 500;
     cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-out);
   }
 
   .sticky-cta__btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
   }
 }
 
@@ -47,21 +48,32 @@
    FORM MODAL (мобильная версия формы)
    =========================================== */
 .form-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-}
-
-.form-modal.is-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    visibility var(--duration-base) var(--ease-out);
+}
+
+.form-modal.is-open {
+  opacity: 1;
+  visibility: visible;
 }
 
 .form-modal__overlay {
   position: absolute;
   inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background var(--duration-base) var(--ease-out);
+}
+
+.form-modal.is-open .form-modal__overlay {
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -75,6 +87,12 @@
   overflow-y: auto;
   padding: 60px 24px 40px;
   -webkit-overflow-scrolling: touch;
+  transform: translateY(20px);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.form-modal.is-open .form-modal__content {
+  transform: translateY(0);
 }
 
 .form-modal__close {
@@ -92,6 +110,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.form-modal__close:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+.form-modal__close:active {
+  transform: scale(0.95);
 }
 
 .form-modal__title {
@@ -200,10 +230,18 @@
     letter-spacing: 0.08em;
     cursor: pointer;
     border-radius: 2px;
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-base) var(--ease-out);
+  }
+
+  .hero__scrollBtn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-md);
   }
 
   .hero__scrollBtn:active {
-    transform: scale(0.98);
+    transform: translateY(0) scale(0.98);
   }
 }
 

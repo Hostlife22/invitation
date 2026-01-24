@@ -1,6 +1,7 @@
 // guest-form.js - Секция анкеты гостя
 /* eslint-env browser */
 
+import { launchConfetti } from './confetti.js';
 import { sendToTelegram } from './telegram.js';
 
 function readFormData(formEl) {
@@ -110,6 +111,8 @@ export function setupGuestForm(sectionEl, { storageKey = "rsvp" } = {}) {
     if (telegramResult.success) {
       saveToLocalStorage(storageKey, payload);
       setStatus("Спасибо! Ваш ответ отправлен.");
+      // Запускаем конфетти при успешной отправке
+      launchConfetti();
     } else {
       // Сохраняем локально даже при ошибке Telegram
       saveToLocalStorage(storageKey, payload);
