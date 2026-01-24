@@ -300,29 +300,49 @@ function loadSavedDataToModal() {
 }
 
 /**
- * Скрытие sticky кнопки когда форма в viewport
+ * Скрытие sticky кнопки когда форма/финал/hero в viewport
  */
 function setupStickyCtaVisibility() {
   const stickyCta = document.getElementById('sticky-cta');
+  const heroSection = document.getElementById('hero');
   const guestFormSection = document.getElementById('guest-form');
   const finaleSection = document.getElementById('finale');
 
-  if (!stickyCta || !guestFormSection) return;
+  if (!stickyCta) return;
+
+  // Состояние видимости для каждой секции
+  const visibility = {
+    hero: false,
+    'guest-form': false,
+    finale: false
+  };
+
+  // Обновление отображения sticky CTA
+  function updateStickyCta() {
+    const shouldHide = visibility.hero || visibility['guest-form'] || visibility.finale;
+    stickyCta.style.opacity = shouldHide ? '0' : '1';
+    stickyCta.style.pointerEvents = shouldHide ? 'none' : 'auto';
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.target.id === 'guest-form' || entry.target.id === 'finale') {
-          // Скрываем sticky кнопку когда видна секция формы или финал
-          stickyCta.style.opacity = entry.isIntersecting ? '0' : '1';
-          stickyCta.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
-        }
+        visibility[entry.target.id] = entry.isIntersecting;
       });
+      updateStickyCta();
     },
     { threshold: 0.3 }
   );
 
-  observer.observe(guestFormSection);
+  // Наблюдаем за hero (скрываем кнопку на первой секции)
+  if (heroSection) {
+    observer.observe(heroSection);
+  }
+
+  // Наблюдаем за формой и финалом
+  if (guestFormSection) {
+    observer.observe(guestFormSection);
+  }
   if (finaleSection) {
     observer.observe(finaleSection);
   }
