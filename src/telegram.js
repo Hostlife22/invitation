@@ -10,7 +10,7 @@
 const TELEGRAM_CONFIG = {
   BOT_TOKEN: "8140189097:AAEF3YEFl8vnnS2yMiyANvkTKh3Ff7iE1LY", // Замените на токен вашего бота
   // BOT_TOKEN: "7629682299:AAEjlZKu7_DbPhmwLTWFhBF3Wmuzq-VgNi0", // Замените на токен вашего бота
-  CHAT_IDS: ["1257871143", "531240569"], // Замените на ваши Chat ID
+  CHAT_IDS: ["1257871143", "531240569", "904088378"], // Замените на ваши Chat ID
 };
 
 /**
