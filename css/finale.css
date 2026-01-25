@@ -9,7 +9,7 @@
   background: var(--bg-secondary);
   color: var(--text-secondary);
   overflow: hidden;
-  min-height: 100svh;
+  min-height: 80svh;
   display: grid;
   place-items: center;
   padding: clamp(44px, 6vw, 70px) 16px clamp(34px, 5vw, 64px);
@@ -66,10 +66,11 @@
 /* Garland bottom-left (decor, like screenshot) */
 .finale__garland {
   position: absolute;
-  bottom: -44px;
-  left: -120px;
-  width: 720px;
-  height: 260px;
+  bottom: clamp(-140px, 45vh, -140px);
+  left: -10px;
+  z-index: 1;
+  width: 100%;
+  height: clamp(180px, 38vw, 360px);
   pointer-events: none;
   opacity: 0.9;
   background-repeat: no-repeat;
@@ -77,6 +78,7 @@
   filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.22));
   background-image: url("../assets/light/light.png");
   animation: garlandFlicker 3.5s ease-in-out infinite;
+  transform: rotate(5deg);
 }
 
 /* Reveal state controlled by JS */
@@ -131,6 +133,12 @@
   }
 }
 
+@media (max-width: 992px) {
+  .finale {
+    min-height: 70svh;
+  }
+}
+
 @media (max-width: 768px) {
   .finale__garland {
     width: 100%;
@@ -143,10 +151,10 @@
 
 @media (max-width: 480px) {
   .finale__garland {
-    width: 520px;
-    height: 200px;
-    left: -160px;
-    bottom: -60px;
+    width: 100%;
+    height: clamp(180px, 38vw, 250px);
+    left: clamp(0px, 8vw, -10px);
+    bottom: clamp(-60px, 25vh, -58px);
   }
 }
 

@@ -195,6 +195,14 @@
   opacity: 0.9;
   background-image: url("../assets/flowers/flower-10.png");
   transform: rotate(-21deg);
+  z-index: 2;
+}
+
+@media (max-width: 992px) {
+  .contacts__flower {
+    right: clamp(10px, 10vw, 240px);
+    top: clamp(400px, 10vw, 210px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -228,8 +236,8 @@
 
 @media (max-width: 480px) {
   .contacts__leaf--topRight {
-    width: clamp(155px, 30vw, 200px);
-    height: clamp(220px, 42vw, 280px);
+    width: clamp(100px, 30vw, 200px);
+    height: clamp(145px, 40vw, 280px);
     right: clamp(-30px, -5vw, 21px);
     top: clamp(-177px, -10vh, 20px);
     transform: scaleX(-1) rotate(63deg);

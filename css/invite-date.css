@@ -243,6 +243,30 @@
   opacity: 0.42;
 }
 
+@media (max-width: 992px) {
+  .invite-date__leaf--right {
+    width: clamp(140px, 30vw, 190px);
+    height: clamp(195px, 40vw, 265px);
+    right: clamp(-20px, 15vw, -20px);
+    bottom: clamp(1px, 45vh, 360px);
+    transform: scaleX(-1) rotate(30deg);
+  }
+
+  .invite-date__leaf--left {
+    width: clamp(130px, 28vw, 180px);
+    height: clamp(180px, 38vw, 250px);
+    left: clamp(7px, 8vw, 6px);
+    top: clamp(200px, 33vh, 10px);
+    transform: rotate(30deg);
+  }
+
+  .invite-date__garland--bottom {
+    width: 100%;
+    bottom: clamp(115px, 10vh, 375px);
+    left: 0;
+  }
+}
+
 /* Responsive tweaks */
 @media (max-width: 768px) {
   .invite-date {
@@ -265,7 +289,7 @@
     height: 280px;
     transform: rotate(1deg);
     left: 0;
-    bottom: 140px;
+    bottom: clamp(115px, 20vh, 375px);
   }
   .invite-date__leaf--left {
     width: clamp(130px, 28vw, 180px);
@@ -300,18 +324,19 @@
   }
   .invite-date__garland--top {
     width: 100%;
-    height: 300px;
+    height: clamp(300px, 32vw, 350px);
     transform: rotate(-24deg);
-    top: clamp(140px, 53vw, 250px);
+    top: clamp(140px, 58vw, 250px);
     right: -37px;
   }
   .invite-date__garland--bottom {
     width: 100%;
-    height: 280px;
+    height: clamp(280px, 32vw, 350px);
     transform: rotate(1deg);
     left: 0;
-    bottom: 140px;
+    bottom: clamp(115px, 17vh, 375px);
   }
+
   .invite-date__leaf--left {
     width: clamp(130px, 28vw, 180px);
     height: clamp(180px, 38vw, 250px);
