@@ -8,8 +8,9 @@
  * CHAT_ID - ваш ID или ID группы (узнать через @userinfobot или @getmyid_bot)
  */
 const TELEGRAM_CONFIG = {
-  BOT_TOKEN: "7629682299:AAEjlZKu7_DbPhmwLTWFhBF3Wmuzq-VgNi0", // Замените на токен вашего бота
-  CHAT_ID: "1257871143", // Замените на ваш Chat ID
+  BOT_TOKEN: "8140189097:AAEF3YEFl8vnnS2yMiyANvkTKh3Ff7iE1LY", // Замените на токен вашего бота
+  // BOT_TOKEN: "7629682299:AAEjlZKu7_DbPhmwLTWFhBF3Wmuzq-VgNi0", // Замените на токен вашего бота
+  CHAT_IDS: ["1257871143", "531240569"], // Замените на ваши Chat ID
 };
 
 /**
@@ -60,42 +61,57 @@ function escapeHtml(text) {
  * @returns {Promise<{success: boolean, error?: string}>}
  */
 export async function sendToTelegram(data) {
-  const { BOT_TOKEN, CHAT_ID } = TELEGRAM_CONFIG;
+  const { BOT_TOKEN, CHAT_IDS } = TELEGRAM_CONFIG;
 
   // Проверка конфигурации
-  if (BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE' || CHAT_ID === 'YOUR_CHAT_ID_HERE') {
-    console.warn('Telegram: Не настроен BOT_TOKEN или CHAT_ID в telegram.js');
+  if (BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE' || 
+      !Array.isArray(CHAT_IDS) || 
+      CHAT_IDS.some(id => id === 'YOUR_CHAT_ID_HERE')) {
+    console.warn('Telegram: Не настроены BOT_TOKEN или CHAT_IDS в telegram.js');
     return { success: false, error: 'Telegram не настроен' };
   }
 
   const message = formatMessage(data);
   const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+  
+  // Отправляем сообщение во все чаты по очереди
+  let successCount = 0;
+  let errorMessages = [];
 
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
-        parse_mode: 'HTML',
-      }),
-    });
+  for (const chatId of CHAT_IDS) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'HTML',
+        }),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (!result.ok) {
-      console.error('Telegram API error:', result);
-      return { success: false, error: result.description || 'Ошибка отправки' };
+      if (!result.ok) {
+        console.error(`Telegram API error for chat ${chatId}:`, result);
+        errorMessages.push(`${chatId}: ${result.description || 'Ошибка отправки'}`);
+      } else {
+        successCount++;
+      }
+    } catch (error) {
+      console.error(`Telegram fetch error for chat ${chatId}:`, error);
+      errorMessages.push(`${chatId}: ${error.message || 'Ошибка сети'}`);
     }
-
-    return { success: true };
-  } catch (error) {
-    console.error('Telegram fetch error:', error);
-    return { success: false, error: 'Ошибка сети' };
   }
+
+  if (successCount === 0) {
+    return { success: false, error: errorMessages.join('; ') };
+  }
+
+  console.log(`Сообщение успешно отправлено в ${successCount} из ${CHAT_IDS.length} чатов`);
+  return { success: true };
 }
 
 /**
@@ -103,6 +119,9 @@ export async function sendToTelegram(data) {
  * @returns {boolean}
  */
 export function isTelegramConfigured() {
-  const { BOT_TOKEN, CHAT_ID } = TELEGRAM_CONFIG;
-  return BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE' && CHAT_ID !== 'YOUR_CHAT_ID_HERE';
+  const { BOT_TOKEN, CHAT_IDS } = TELEGRAM_CONFIG;
+  return BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE' && 
+         Array.isArray(CHAT_IDS) && 
+         CHAT_IDS.length > 0 && 
+         !CHAT_IDS.some(id => id === 'YOUR_CHAT_ID_HERE');
 }
